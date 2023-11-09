@@ -13,6 +13,7 @@ const links = {
   TORNEO_DETALLES: "torneo_detalles/",
   ESTADIOS: "estadios/",
   LOGIN: "login/",
+  VISITAS: "web_visit/reporte",
 }
 
 module.exports = {

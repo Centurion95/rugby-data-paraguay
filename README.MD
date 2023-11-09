@@ -38,6 +38,12 @@ npm start
 
 ## Versiones
 
+#### rc95 09/11/2023 10:40 
+- Cambio de alcance para la version 1, no se tendrá ABM de personas
+- Se agregan los `headers` faltantes en los POST y PATCH
+- Se agrega la sección VISITAS
+- Se implementa `chart.js`
+
 #### rc95 - 22/10/2023 18:57
 - Se agrega la sección BLOG
 - Se agrega BOOTSTRAP para el NAVBAR

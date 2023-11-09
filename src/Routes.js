@@ -19,6 +19,8 @@ import Blog from './pages/Blog'
 import Landing from './pages/Landing'
 import Versiones from './pages/Versiones'
 
+import Visitas from './pages/Visitas'
+
 import B_2022_09_15 from './blog/2022_09_15'
 import B_2022_09_30 from './blog/2022_09_30'
 import B_2022_11_11 from './blog/2022_11_11'
@@ -64,6 +66,8 @@ function App() {
           <Route exact path="/blog" element={<Blog />} />
           <Route exact path="/landing" element={<Landing />} />
           <Route exact path="/versiones" element={<Versiones />} />
+
+          <Route exact path="/visitas" element={<Visitas />} />
 
           <Route exact path="/blog/2022_09_15" element={<B_2022_09_15 />} />
           <Route exact path="/blog/2022_09_30" element={<B_2022_09_30 />} />

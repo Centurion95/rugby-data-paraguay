@@ -143,14 +143,27 @@ function Page(props) {
         year: year ?? null,
         order_number: order_number ?? null,
       }
-      await Axios.post(this_url, newDocument)
+      // await Axios.post(this_url, newDocument) 
+      //rc95 09/11/2023 00:36 - agregamos headers
+      await Axios.post(this_url, newDocument, {
+        headers: { Authorization: localStorage.getItem('token') }
+      })
         .catch((error) => mostrarError(error))
     } else { //update
+      // await Axios.patch(this_url + editID, {
+      //   name,
+      //   fk_id: fkID || undefined,
+      //   year: year || undefined,
+      //   order_number: order_number || undefined,
+      // })
+      //rc95 09/11/2023 00:36 - agregamos headers
       await Axios.patch(this_url + editID, {
         name,
         fk_id: fkID || undefined,
         year: year || undefined,
         order_number: order_number || undefined,
+      }, {
+        headers: { Authorization: localStorage.getItem('token') }
       })
         .catch((error) => mostrarError(error))
     }

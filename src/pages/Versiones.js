@@ -15,6 +15,17 @@ const Page = () => {
       <h1>Acerca de</h1>
 
       <div className="container-c">
+        <p><u>Versión 09/11/2023 10:40</u></p>
+        <ul>
+          <li>Cambio de alcance para la version 1, no se tendrá ABM de personas</li>
+          <li>Se agregan los `headers` faltantes en los POST y PATCH</li>
+          <li>Se agrega la sección VISITAS</li>
+          <li>Se implementa `chart.js`</li>
+        </ul>
+      </div>
+      <br />
+
+      <div className="container-c">
         <p><u>Versión 22/10/2023 18:57</u></p>
         <ul>
           <li>Se agrega la sección BLOG</li>
