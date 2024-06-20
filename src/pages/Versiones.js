@@ -15,6 +15,18 @@ const Page = () => {
       <h1>Acerca de</h1>
 
       <div className="container-c">
+        <p><u>Versión 19/06/2024 21:41</u></p>
+        <ul>
+          <li>Cambios para mejorar el SEO, en la carpeta public:</li>
+          <ul>
+            <li> Se modifica el archivo `index.html`</li>
+            <li> Se crea el archivo `robots.txt`</li>
+          </ul>
+        </ul>
+      </div>
+      <br />
+
+      <div className="container-c">
         <p><u>Versión 09/11/2023 10:40</u></p>
         <ul>
           <li>Cambio de alcance para la version 1, no se tendrá ABM de personas</li>

@@ -38,6 +38,11 @@ npm start
 
 ## Versiones
 
+#### rc95 19/06/2024 21:41
+- Cambios para mejorar el SEO, en la carpeta public:
+  - Se modifica el archivo `index.html`
+  - Se crea el archivo `robots.txt` 
+
 #### rc95 09/11/2023 10:40 
 - Cambio de alcance para la version 1, no se tendrá ABM de personas
 - Se agregan los `headers` faltantes en los POST y PATCH
