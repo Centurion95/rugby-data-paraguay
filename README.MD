@@ -38,6 +38,15 @@ npm start
 
 ## Versiones
 
+#### rc95 25/08/2024 21:07
+- En la pagina "Visitas" se agregó un selector de años y el gráfico filtra según este dato
+- Se actualizan el icono y la imagen de perfil de la web
+- Se agrega el modulo "Estados" en la sección de "Administración"
+- Se modifica la estructura del layout para ingresar 2 "asides" alrededor del "main"
+- Se modifica el CSS para corregir el encuadre de los elementos que se estaban encimando y escapando de los DIV padres
+- Se modifica el CSS en los articulos del blog para mejorar el aspecto y se agregan botones de navegación
+- Se configura "Error 404: Pagina no encontrada"
+
 #### rc95 19/06/2024 21:41
 - Cambios para mejorar el SEO, en la carpeta public:
   - Se modifica el archivo `index.html`

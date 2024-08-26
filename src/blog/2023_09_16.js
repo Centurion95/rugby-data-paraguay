@@ -20,17 +20,22 @@ const Page = () => {
         <title>{title}</title>
       </Helmet>
 
-      <h1>Ya se encuentra disponible la página web de Rugby Data Paraguay</h1>
-      <p className='right i'>16/09/2023 16:33 - Rodrigo Centurión</p>
-      <hr />
-      <p>Es con gran emoción que anunciamos la disponibilidad de nuestra página web oficial, Rugby Data Paraguay. 🏉</p>
+      <div className="container-c">
+        <h1>Ya se encuentra disponible la página web de Rugby Data Paraguay</h1>
+        <p className='right i'>16/09/2023 16:33 - Rodrigo Centurión</p>
+        <hr />
+        <p>Es con gran emoción que anunciamos la disponibilidad de nuestra página web oficial, Rugby Data Paraguay. 🏉</p>
 
-      <p>En este sitio web, encontrarás una amplia gama de información sobre el rugby en Paraguay, incluyendo datos, estadísticas, noticias, calendarios de torneos y mucho más. Estamos comprometidos a brindarte la mejor experiencia rugbística.</p>
+        <p>En este sitio web, encontrarás una amplia gama de información sobre el rugby en Paraguay, incluyendo datos, estadísticas, noticias, calendarios de torneos y mucho más. Estamos comprometidos a brindarte la mejor experiencia rugbística.</p>
 
-      <p>Esta plataforma es el resultado de un arduo trabajo y dedicación, y estamos seguros de que te será de gran utilidad. Únete a nosotros en este emocionante viaje para explorar y promover el rugby en Paraguay.</p>
+        <p>Esta plataforma es el resultado de un arduo trabajo y dedicación, y estamos seguros de que te será de gran utilidad. Únete a nosotros en este emocionante viaje para explorar y promover el rugby en Paraguay.</p>
 
-      <p>¡Visita nuestra página web y descubre todo lo que tenemos para ofrecer!</p>
-
+        <p>¡Visita nuestra página web y descubre todo lo que tenemos para ofrecer!</p>
+      </div>
+      <div class="right">
+        <a className="btn-green" href="/blog/2023_09_15_2">Anterior</a>
+        <a className="btn-green margin-left-10" href="/blog/2023_09_22">Siguiente</a>
+      </div>
     </div>
   )
 }

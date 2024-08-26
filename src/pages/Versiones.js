@@ -12,7 +12,21 @@ import img_x from '../img/logos/x.png'
 const Page = () => {
   return (
     <div>
-      <h1>Acerca de</h1>
+      <h1>Versiones</h1>
+
+      <div className="container-c">
+        <p><u>Versión 25/08/2024 21:07</u></p>
+        <ul>
+          <li>En la pagina "Visitas" se agregó un selector de años y el gráfico filtra según este dato</li>
+          <li>Se actualizan el icono y la imagen de perfil de la web</li>
+          <li>Se agrega el modulo "Estados" en la sección de "Administración"</li>
+          <li>Se modifica la estructura del layout para ingresar 2 "asides" alrededor del "main"</li>
+          <li>Se modifica el CSS para corregir el encuadre de los elementos que se estaban encimando y escapando de los DIV padres</li>
+          <li>Se modifica el CSS en los articulos del blog para mejorar el aspecto y se agregan botones de navegación</li>
+          <li>Se configura "Error 404: Pagina no encontrada"</li>
+        </ul>
+      </div>
+      <br />
 
       <div className="container-c">
         <p><u>Versión 19/06/2024 21:41</u></p>
@@ -199,9 +213,10 @@ const Page = () => {
             <h3>Rugby Data Paraguay</h3>
             <ul>
               <a target="_blank" href='https://www.instagram.com/rugby_data_paraguay/'><img src={img_instagram} alt='Instagram' className='margin-left-10' /></a>
+              <a target="_blank" href='https://chat.whatsapp.com/CxOlZsPcKndFLs0W2E8fUP'><img src={img_whatsapp} alt='WhatsApp' className='margin-left-10' /></a>
               <a target="_blank" href='https://www.facebook.com/rugby.data.paraguay'><img src={img_facebook} alt='Facebook' className='margin-left-10' /></a>
               <a target="_blank" href='https://x.com/RugbyDataPy'><img src={img_x} alt='X' className='margin-left-10' /></a>
-              <a target="_blank" href='https://www.threads.net/@rugby_data_paraguay'><img src={img_threads} alt='Threads' className='margin-left-10' /></a>
+              <a target="_blank" href='https://www.threads.net/@rugby_data_paraguay'><img src={img_threads} alt='Threads' className='margin-left-10 img48x48' /></a>
             </ul>
           </div>
         </div>

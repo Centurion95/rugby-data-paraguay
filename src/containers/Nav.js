@@ -8,6 +8,8 @@ import Nav from 'react-bootstrap/Nav'
 import Navbar from 'react-bootstrap/Navbar'
 import NavDropdown from 'react-bootstrap/NavDropdown'
 
+import img_logo from '../img/rdp_logo_sin_fondo.png'
+
 
 const Page = ({ name, es_admin }) => {
   const navigate = useNavigate()
@@ -35,6 +37,7 @@ const Page = ({ name, es_admin }) => {
               <NavDropdown title="Administración" id="basic-nav-dropdown">
                 <NavDropdown.Item href="/continentes">Continentes</NavDropdown.Item>
                 <NavDropdown.Item href="/paises">Paises</NavDropdown.Item>
+                <NavDropdown.Item href="/estados">Estados</NavDropdown.Item>
                 <NavDropdown.Item href="/ciudades">Ciudades</NavDropdown.Item>
                 <NavDropdown.Divider />
                 <NavDropdown.Item href="/clubes">Clubes</NavDropdown.Item>

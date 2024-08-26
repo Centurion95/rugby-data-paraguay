@@ -21,20 +21,26 @@ const Page = () => {
         <title>{title}</title>
       </Helmet>
 
-      <h1>¡Llegamos a 4.000 seguidores!</h1>
-      <p className='right i'>02/12/2022 07:31 - Rodrigo Centurión</p>
-      <hr />
-      <p>Estamos emocionados de anunciar que hemos alcanzado la increíble cifra de 4.000 seguidores. 🎉🙌</p>
+      <div className="container-c">
+        <h1>¡Llegamos a 4.000 seguidores!</h1>
+        <p className='right i'>02/12/2022 07:31 - Rodrigo Centurión</p>
+        <hr />
+        <p>Estamos emocionados de anunciar que hemos alcanzado la increíble cifra de 4.000 seguidores. 🎉🙌</p>
 
-      <a target="_blank" href='https://www.instagram.com/p/Clq7GT-rGrh/'><img src={img_instagram} alt='Instagram' className='margin-left-10' /></a>
+        <a target="_blank" href='https://www.instagram.com/p/Clq7GT-rGrh/'><img src={img_instagram} alt='Instagram' className='margin-left-10' /></a>
 
-      <p>Este viaje no ha estado exento de desafíos, pero cada obstáculo nos ha enseñado valiosas lecciones. Hemos aprendido que la dedicación y la pasión pueden superar cualquier dificultad.</p>
+        <p>Este viaje no ha estado exento de desafíos, pero cada obstáculo nos ha enseñado valiosas lecciones. Hemos aprendido que la dedicación y la pasión pueden superar cualquier dificultad.</p>
 
-      <p>Además, hemos formado vínculos fuertes con todos ustedes, nuestra increíble comunidad. Cada seguidor, cada comentario y cada mensaje nos ha unido más en torno a nuestra pasión compartida por el rugby en Paraguay.</p>
+        <p>Además, hemos formado vínculos fuertes con todos ustedes, nuestra increíble comunidad. Cada seguidor, cada comentario y cada mensaje nos ha unido más en torno a nuestra pasión compartida por el rugby en Paraguay.</p>
 
-      <p>Queremos agradecer a cada uno de ustedes por ser parte de este viaje. Su apoyo constante nos impulsa a seguir compartiendo el emocionante mundo del rugby en nuestro país.</p>
+        <p>Queremos agradecer a cada uno de ustedes por ser parte de este viaje. Su apoyo constante nos impulsa a seguir compartiendo el emocionante mundo del rugby en nuestro país.</p>
 
-      <p>¡Mantente atento a más noticias, historias y contenido emocionante! 🏉🇵🇾 #RugbyEnParaguay #Seguidores #Rugby</p>
+        <p>¡Mantente atento a más noticias, historias y contenido emocionante! 🏉🇵🇾 #RugbyEnParaguay #Seguidores #Rugby</p>
+      </div>
+      <div class="right">
+        <a className="btn-green" href="/blog/2022_11_11">Anterior</a>
+        <a className="btn-green margin-left-10" href="/blog/2023_08_04">Siguiente</a>
+      </div>
     </div>
   )
 }

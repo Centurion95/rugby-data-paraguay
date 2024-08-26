@@ -20,17 +20,22 @@ const Page = () => {
         <title>{title}</title>
       </Helmet>
 
-      <h1>Inicia el campeonato oficial URP 2023</h1>
-      <p className='right i'>04/08/2023 21:00 - Rodrigo Centurión</p>
-      <hr />
-      <p>El emocionante campeonato oficial de 2023 dará comienzo el 5 de agosto, marcando el inicio de una nueva temporada de rugby en Paraguay. 🏉</p>
+      <div className="container-c">
+        <h1>Inicia el campeonato oficial URP 2023</h1>
+        <p className='right i'>04/08/2023 21:00 - Rodrigo Centurión</p>
+        <hr />
+        <p>El emocionante campeonato oficial de 2023 dará comienzo el 5 de agosto, marcando el inicio de una nueva temporada de rugby en Paraguay. 🏉</p>
 
-      <p>Queremos informar a nuestra comunidad que, a partir de este torneo, los resultados de los partidos serán publicados exclusivamente en nuestra página web.</p>
+        <p>Queremos informar a nuestra comunidad que, a partir de este torneo, los resultados de los partidos serán publicados exclusivamente en nuestra página web.</p>
 
-      <p>Esto nos permitirá brindarles una experiencia más completa y detallada.</p>
+        <p>Esto nos permitirá brindarles una experiencia más completa y detallada.</p>
 
-      <p>Gracias por su apoyo continuo. Juntos, haremos de este campeonato una temporada memorable. 🇵🇾 #Rugby2023</p>
-
+        <p>Gracias por su apoyo continuo. Juntos, haremos de este campeonato una temporada memorable. 🇵🇾 #Rugby2023</p>
+      </div>
+      <div class="right">
+        <a className="btn-green" href="/blog/2022_12_02">Anterior</a>
+        <a className="btn-green margin-left-10" href="/blog/2023_09_15">Siguiente</a>
+      </div>
     </div>
   )
 }

@@ -20,17 +20,22 @@ const Page = () => {
         <title>{title}</title>
       </Helmet>
 
-      <h1>¡1 año de Rugby Data Paraguay!</h1>
-      <p className='right i'>15/09/2023 19:00 - Rodrigo Centurión</p>
-      <hr />
-      <p>Hoy celebramos un hito especial: se cumple un año desde que iniciamos esta emocionante aventura. 🎉</p>
+      <div className="container-c">
+        <h1>¡1 año de Rugby Data Paraguay!</h1>
+        <p className='right i'>15/09/2023 19:00 - Rodrigo Centurión</p>
+        <hr />
+        <p>Hoy celebramos un hito especial: se cumple un año desde que iniciamos esta emocionante aventura. 🎉</p>
 
-      <p>El 15 de septiembre de 2022, decidí embarcarme en este proyecto, después de postergarlo y buscar el momento "perfecto". Aprendí que la perfección no existe y que es en la acción donde se forjan los sueños.</p>
+        <p>El 15 de septiembre de 2022, decidí embarcarme en este proyecto, después de postergarlo y buscar el momento "perfecto". Aprendí que la perfección no existe y que es en la acción donde se forjan los sueños.</p>
 
-      <p>A lo largo de este año, hemos compartido datos, estadísticas y noticias sobre el rugby en Paraguay. A pesar de los desafíos, cada día nos ha acercado más a nuestra comunidad apasionada por este deporte.</p>
+        <p>A lo largo de este año, hemos compartido datos, estadísticas y noticias sobre el rugby en Paraguay. A pesar de los desafíos, cada día nos ha acercado más a nuestra comunidad apasionada por este deporte.</p>
 
-      <p>Gracias por su apoyo constante. Esperamos seguir creciendo y mejorando en los años venideros. ¡Vamos por más éxitos en el mundo del rugby en Paraguay! 🏉🇵🇾 #Aniversario #RugbyDataParaguay</p>
-
+        <p>Gracias por su apoyo constante. Esperamos seguir creciendo y mejorando en los años venideros. ¡Vamos por más éxitos en el mundo del rugby en Paraguay! 🏉🇵🇾 #Aniversario #RugbyDataParaguay</p>
+      </div>
+      <div class="right">
+        <a className="btn-green" href="/blog/2023_08_04">Anterior</a>
+        <a className="btn-green margin-left-10" href="/blog/2023_09_15_2">Siguiente</a>
+      </div>
     </div>
   )
 }

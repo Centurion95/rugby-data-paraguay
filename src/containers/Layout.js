@@ -42,20 +42,39 @@ const Layout = ({ children }) => {
   return (
     // <div className="App">
     <div>
-
       <Nav name={name} es_admin={es_admin} />
 
-      <Main children={children} />
+      <div className="layout">
+        <aside className="left-sidebar">
+          {/* <h2>Left Sidebar</h2>
+          <div className="widget">
+            <h3>Quick Info</h3>
+            <p>This could be a widget, additional navigation, or any other secondary content.</p>
+          </div> */}
+        </aside>
 
-      {/* <footer> */}
-      {/* <h3>Rugby Data Paraguay &copy; {new Date().getFullYear()}</h3> */}
+        {/* <Main children={children} /> */}
+
+        <div className="main-content">
+          <Main children={children} />
+          {/* <h2>Main Content</h2>
+          <p>This is the main content area. It's flanked by two aside elements on larger screens.</p> */}
+        </div>
+
+        <aside className="right-sidebar">
+          {/* <h2>Right Sidebar</h2>
+          <div className="widget">
+            <h3>Quick Info</h3>
+            <p>This could be a widget, additional navigation, or any other secondary content.</p>
+          </div> */}
+        </aside>
+      </div >
+
       <nav data-bs-theme="dark" className="navbar navbar-expand-lg navbar-light bg-dark">
         <div className='container'>
-          {/* <h3>Rugby Data Paraguay &copy; {new Date().getFullYear()}</h3> */}
           <a className="navbar-brand">Rugby Data Paraguay &copy; {new Date().getFullYear()}</a>
         </div>
       </nav>
-      {/* </footer> */}
     </div >
   )
 }
