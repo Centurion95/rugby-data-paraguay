@@ -7,6 +7,17 @@ const Page = () => {
       <h1>Blog</h1>
 
       <div className="cta-buttons">
+        <a className="cta-button" href="/blog/2024_08_26">
+          <div>
+            <p className='right i'>26/08/2024 10:40 - Horacio Ariel Garcia Cabrera</p>
+            <h2>Toros vs Jararás 🏉🇵🇾 Fecha 1 del Pre Intermedia Metro</h2>
+            <hr />
+            <p>En una siesta atípica para nuestro país, con un día soleado y menos de 15°C se dio inicio al torneo de la Pre Intermedia Metro de la URP y en esta ocasión le toco la oportunidad a los Toros de Fernando de la Mora enfrentarse de visita a los locales de Jararas en el estadio Héroes de Curupayty de la URP en el Comité Olímpico Paraguayo.</p>
+          </div>
+        </a>
+      </div>
+
+      <div className="cta-buttons">
         <a className="cta-button" href="/blog/2024_08_25">
           <div>
             <p className='right i'>25/08/2024 21:02 - Rodrigo Centurión</p>
@@ -20,7 +31,7 @@ const Page = () => {
       <div className="cta-buttons">
         <a className="cta-button" href="/blog/2024_08_05">
           <div>
-            <p className='right i'>05/08/2024 17:30 - Horacio A. Garcia</p>
+            <p className='right i'>05/08/2024 17:30 - Horacio Ariel Garcia Cabrera</p>
             <h2>Empezó el torneo clausura de Rugby Seven Femenino!! 🎉🏉🇵🇾</h2>
             <hr />
             <p>Este domingo 4 de agosto empezó el torneo clausura de Rugby Seven Femenino, torneo organizado por la Union de Rugby del Paraguay (URP), este año se cuenta con 14 equipos de todos los rincones del país y por 3 año consecutivo se presenta el Fernando de la Mora Rugby Fem en este torneo.</p>

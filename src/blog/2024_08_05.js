@@ -22,7 +22,7 @@ const Page = () => {
 
       <div className="container-c">
         <h1>Empezó el torneo clausura de Rugby Seven Femenino!!</h1>
-        <p className='right i'>05/08/2024 17:30 - Horacio A. Garcia</p>
+        <p className='right i'>05/08/2024 17:30 - Horacio Ariel Garcia Cabrera</p>
         <hr />
 
         <p>Este domingo 4 de agosto empezó el torneo clausura de Rugby Seven Femenino, torneo organizado por la Union de Rugby del Paraguay (URP), este año se cuenta con 14 equipos de todos los rincones del país y por 3 año consecutivo se presenta el Fernando de la Mora Rugby Fem en este torneo.</p>

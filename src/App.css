@@ -294,6 +294,7 @@ input[type=submit]:hover {
   border-radius: 4px;
   cursor: pointer;
   /* float: right; */
+  text-decoration: none;
 }
 
 
