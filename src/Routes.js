@@ -32,6 +32,7 @@ import B_2023_09_16 from './blog/2023_09_16'
 import B_2023_09_22 from './blog/2023_09_22'
 import B_2023_10_22 from './blog/2023_10_22'
 import B_2024_08_05 from './blog/2024_08_05'
+import B_2024_08_19 from './blog/2024_08_19'
 import B_2024_08_25 from './blog/2024_08_25'
 import B_2024_08_26 from './blog/2024_08_26'
 
@@ -83,6 +84,7 @@ function App() {
           <Route exact path="/blog/2023_09_22" element={<B_2023_09_22 />} />
           <Route exact path="/blog/2023_10_22" element={<B_2023_10_22 />} />
           <Route exact path="/blog/2024_08_05" element={<B_2024_08_05 />} />
+          <Route exact path="/blog/2024_08_19" element={<B_2024_08_19 />} />
           <Route exact path="/blog/2024_08_25" element={<B_2024_08_25 />} />
           <Route exact path="/blog/2024_08_26" element={<B_2024_08_26 />} />
 

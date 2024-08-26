@@ -29,6 +29,17 @@ const Page = () => {
       </div>
 
       <div className="cta-buttons">
+        <a className="cta-button" href="/blog/2024_08_19">
+          <div>
+            <p className='right i'>19/08/2024 20:30 - Horacio Ariel Garcia Cabrera</p>
+            <h2>Fecha 2 del Rugby Seven Femenino!! 🎉🏉🇵🇾</h2>
+            <hr />
+            <p>El Domingo 18 de agosto se llevo a cabo la segunda fecha del torneo clausura del seven femenino de la URP, en esta ocasión el Fernando de la Mora Fem Rugby tuvieron la dura tarea de enfrentarse al campeón y vicecampeón del torneo apertura, primero se enfrentaron con Santa Clara el 2° en el torneo apertura y luego contra Old King el campeón del apertura.</p>
+          </div>
+        </a>
+      </div>
+
+      <div className="cta-buttons">
         <a className="cta-button" href="/blog/2024_08_05">
           <div>
             <p className='right i'>05/08/2024 17:30 - Horacio Ariel Garcia Cabrera</p>

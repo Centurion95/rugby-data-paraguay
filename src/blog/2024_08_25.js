@@ -40,7 +40,7 @@ const Page = () => {
 
       </div>
       <div class="right">
-        <a className="btn-green" href="/blog/2024_08_05">Anterior</a>
+        <a className="btn-green" href="/blog/2024_08_19">Anterior</a>
         <a className="btn-green margin-left-10" href="/blog/2024_08_26">Siguiente</a>
       </div>
     </div>
