@@ -15,6 +15,15 @@ const Page = () => {
       <h1>Versiones</h1>
 
       <div className="container-c">
+        <p><u>Versión 27/08/2024 00:05</u></p>
+        <ul>
+          <li>Mejoras en el SEO según seobility.net</li>
+          <li>Se eliminan ficheros innecesarios</li>
+        </ul>
+      </div>
+      <br />
+
+      <div className="container-c">
         <p><u>Versión 26/08/2024 23:44</u></p>
         <ul>
           <li>Omitimos la cursiva en el Blog</li>
@@ -22,7 +31,6 @@ const Page = () => {
         </ul>
       </div>
       <br />
-
 
       <div className="container-c">
         <p><u>Versión 25/08/2024 21:07</u></p>

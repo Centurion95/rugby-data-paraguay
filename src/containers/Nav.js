@@ -8,9 +8,6 @@ import Nav from 'react-bootstrap/Nav'
 import Navbar from 'react-bootstrap/Navbar'
 import NavDropdown from 'react-bootstrap/NavDropdown'
 
-import img_logo from '../img/rdp_logo_sin_fondo.png'
-
-
 const Page = ({ name, es_admin }) => {
   const navigate = useNavigate()
   function cerrarSesion() {

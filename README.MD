@@ -38,6 +38,10 @@ npm start
 
 ## Versiones
 
+#### rc95 27/08/2024 00:05
+- Mejoras en el SEO según seobility.net
+- Se eliminan ficheros innecesarios
+
 #### rc95 26/08/2024 23:44
 - Omitimos la cursiva en el Blog
 - En "Torneos anteriores" habilitamos los años 2023, 2022 y 2021
