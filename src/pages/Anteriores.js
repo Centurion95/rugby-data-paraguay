@@ -72,6 +72,16 @@ function Page() {
     setIsLoading(false)
   }
 
+  const handleYearChange = (event) => {
+    setYear(event.target.value)
+  }
+  useEffect(() => {
+    if (year) {
+      console.log('*** useEffect() - torneosAnteriores - year', year)
+      fetchData()
+    }
+  }, [year])
+
   const handleInputChange = (event) => {
     setTorneo_id(event.target.value)
     const selectedItem = elements.find(item => item._id === event.target.value)
@@ -87,18 +97,21 @@ function Page() {
       <div className="row">
         <div className="col-25"><label>Seleccione el año</label></div>
         <div className="col-75">
-          <select value={year} onChange={e => {
-            setYear(e.target.value)
-            fetchData()
-          }}>
+          <select value={year} onChange={handleYearChange}>
             {[
               new Date().getFullYear() - 1,
-              // new Date().getFullYear() - 2,
-              // new Date().getFullYear() - 3,
+              new Date().getFullYear() - 2,
+              new Date().getFullYear() - 3,
               // new Date().getFullYear() - 4,
             ].map((element) => {
               return (<option key={element} value={element}>{element}</option>)
             })}
+
+            {/* {[...new Array(5)].map((_, i) => {
+              const year = new Date().getFullYear() - i - 1
+              return <option key={year} value={year}>{year}</option>
+            })} */}
+
           </select>
         </div>
       </div>
@@ -139,7 +152,7 @@ function Page() {
         }
       </div>
       <br />
-    </div>
+    </div >
   )
 }
 

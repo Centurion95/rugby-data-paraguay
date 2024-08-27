@@ -38,6 +38,10 @@ npm start
 
 ## Versiones
 
+#### rc95 26/08/2024 23:44
+- Omitimos la cursiva en el Blog
+- En "Torneos anteriores" habilitamos los años 2023, 2022 y 2021
+
 #### rc95 25/08/2024 21:07
 - En la pagina "Visitas" se agregó un selector de años y el gráfico filtra según este dato
 - Se actualizan el icono y la imagen de perfil de la web

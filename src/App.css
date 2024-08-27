@@ -435,7 +435,8 @@ input[type=submit]:hover {
 }
 
 .i {
-  font-family: "Lobster", cursive;
+  /* font-family: "Lobster", cursive; */
+  font-family: 'Consolas', monospace;
 }
 
 

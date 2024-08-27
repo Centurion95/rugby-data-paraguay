@@ -15,6 +15,16 @@ const Page = () => {
       <h1>Versiones</h1>
 
       <div className="container-c">
+        <p><u>Versión 26/08/2024 23:44</u></p>
+        <ul>
+          <li>Omitimos la cursiva en el Blog</li>
+          <li>En "Torneos anteriores" habilitamos los años 2023, 2022 y 2021</li>
+        </ul>
+      </div>
+      <br />
+
+
+      <div className="container-c">
         <p><u>Versión 25/08/2024 21:07</u></p>
         <ul>
           <li>En la pagina "Visitas" se agregó un selector de años y el gráfico filtra según este dato</li>
