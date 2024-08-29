@@ -7,6 +7,17 @@ const Page = () => {
       <h1>Blog</h1>
 
       <div className="cta-buttons">
+        <a className="cta-button" href="/blog/2024_08_29">
+          <div>
+            <p className='right i'>29/08/2024 08:33 - Adry Decoud</p>
+            <h2>Inicia el torneo oficial en todas las divisiones con record en partidos disputados en todo el pais! 🏉🇵🇾</h2>
+            <hr />
+            <p>Histórico y sin precedentes en Paraguay: 54 partidos disputados entre categorías M13, M14, M16, M18, Intermedia, Primera y Femenino, tanto en Asunción como en el interior del país. El rugby se juega en la capital y en el interior, abarcando todas las divisiones, con árbitros paraguayos certificados por World Rugby.</p>
+          </div>
+        </a>
+      </div>
+
+      <div className="cta-buttons">
         <a className="cta-button" href="/blog/2024_08_26">
           <div>
             <p className='right i'>26/08/2024 10:40 - Horacio Ariel Garcia Cabrera</p>

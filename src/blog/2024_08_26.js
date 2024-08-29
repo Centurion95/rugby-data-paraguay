@@ -43,7 +43,7 @@ const Page = () => {
       </div>
       <div class="right">
         <a className="btn-green" href="/blog/2024_08_25">Anterior</a>
-        <a className="btn-gray margin-left-10">Siguiente</a>
+        <a className="btn-green margin-left-10" href="/blog/2024_08_29">Siguiente</a>
       </div>
     </div>
   )
