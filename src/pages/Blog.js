@@ -7,6 +7,17 @@ const Page = () => {
       <h1>Blog</h1>
 
       <div className="cta-buttons">
+        <a className="cta-button" href="/blog/2024_09_02">
+          <div>
+            <p className='right i'>02/09/2024 15:08 - Horacio Ariel Garcia Cabrera</p>
+            <h2>Fecha 2 en Pre Intermedia y M14 Metro, Fecha 3 en Femenino! 🏉🇵🇾</h2>
+            <hr />
+            <p>En un vibrante partido con trys y marcador de ida y vuelta el domingo 1 de septiembre, los Toros de Fernando de la Mora Rugby visitaron a su par de Old King Club en el estadio Héroes de Curupayty en el comité Olímpico paraguayo para dar continuidad a la segunda fecha del torneo clausura en la División Pre intermedia.</p>
+          </div>
+        </a>
+      </div>
+
+      <div className="cta-buttons">
         <a className="cta-button" href="/blog/2024_08_29">
           <div>
             <p className='right i'>29/08/2024 08:33 - Adry Decoud</p>
