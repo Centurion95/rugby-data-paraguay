@@ -38,6 +38,9 @@ npm start
 
 ## Versiones
 
+#### rc95 07/09/2024 22:42
+- Mejoras en el SEO: se agrega `/public/sitemap.xml`, generado por https://www.mysitemapgenerator.com/
+
 #### rc95 27/08/2024 00:05
 - Mejoras en el SEO según seobility.net
 - Se eliminan ficheros innecesarios

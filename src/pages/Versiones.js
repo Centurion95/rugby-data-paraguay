@@ -15,6 +15,14 @@ const Page = () => {
       <h1>Versiones</h1>
 
       <div className="container-c">
+        <p><u>Versión 07/09/2024 22:42</u></p>
+        <ul>
+          <li>Mejoras en el SEO: se agrega `/public/sitemap.xml`, generado por https://www.mysitemapgenerator.com/</li>
+        </ul>
+      </div>
+      <br />
+
+      <div className="container-c">
         <p><u>Versión 27/08/2024 00:05</u></p>
         <ul>
           <li>Mejoras en el SEO según seobility.net</li>
