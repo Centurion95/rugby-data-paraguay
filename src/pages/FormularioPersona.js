@@ -56,7 +56,7 @@ function Page(props) {
 
   const navigate = useNavigate()
   useEffect(() => {
-    //rc95 08/09/2023 22:59 - si no es admin, redirigimos al LOGIN
+    //si no es admin, redirigimos al LOGIN
     const es_admin = getDecodedToken()?.es_admin
     if (!es_admin) {
       navigate('/login')

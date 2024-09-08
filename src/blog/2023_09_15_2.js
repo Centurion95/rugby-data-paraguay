@@ -35,7 +35,7 @@ const Page = () => {
 
         <p>Para unirte, simplemente sigue este enlace: <a target="_blank" href='https://chat.whatsapp.com/CxOlZsPcKndFLs0W2E8fUP'><img src={img_whatsapp} alt='WhatsApp' className='margin-left-10' /></a> </p>
       </div>
-      <div class="right">
+      <div className="right">
         <a className="btn-green" href="/blog/2023_09_15">Anterior</a>
         <a className="btn-green margin-left-10" href="/blog/2023_09_16">Siguiente</a>
       </div>

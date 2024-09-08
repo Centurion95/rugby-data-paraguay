@@ -39,7 +39,7 @@ const Page = () => {
 
         <p>¡Felicidades a CURDA por su impresionante logro y a todos los jugadores, entrenadores y seguidores por su inquebrantable apoyo y espíritu deportivo!</p>
       </div>
-      <div class="right">
+      <div className="right">
         <a className="btn-green" href="/blog/2023_09_22">Anterior</a>
         <a className="btn-green margin-left-10" href="/blog/2024_08_05">Siguiente</a>
       </div>

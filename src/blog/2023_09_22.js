@@ -45,7 +45,7 @@ const Page = () => {
 
         <p>¡Mantente atento a nuestras publicaciones, ya que estaremos actualizando regularmente el blog con contenido fresco y emocionante! ¡Gracias por ser parte de nuestra comunidad y por tu continuo apoyo al rugby en Paraguay!</p>
       </div>
-      <div class="right">
+      <div className="right">
         <a className="btn-green" href="/blog/2023_09_16">Anterior</a>
         <a className="btn-green margin-left-10" href="/blog/2023_10_22">Siguiente</a>
       </div>

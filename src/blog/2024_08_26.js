@@ -41,7 +41,7 @@ const Page = () => {
         <p>En la siguiente fecha los toros se enfrentarán al aguerrido Old King equipo muy tradicional del rugby paraguayo, que logro sumar una gran victoria por 63 a 19 frente a su par Santani. Completando la fecha la victoria del Curda por 64 a 10 ante Ypane.</p>
 
       </div>
-      <div class="right">
+      <div className="right">
         <a className="btn-green" href="/blog/2024_08_25">Anterior</a>
         <a className="btn-green margin-left-10" href="/blog/2024_08_29">Siguiente</a>
       </div>

@@ -35,7 +35,7 @@ const Page = () => {
 
         <p>#RugbyEnParaguay #RugbyInstagram #DeporteParaguayo</p>
       </div>
-      <div class="right">
+      <div className="right">
         <a className="btn-green" href="/blog/2022_09_15">Anterior</a>
         <a className="btn-green margin-left-10" href="/blog/2022_11_11">Siguiente</a>
       </div>

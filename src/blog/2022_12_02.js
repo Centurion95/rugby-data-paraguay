@@ -37,7 +37,7 @@ const Page = () => {
 
         <p>¡Mantente atento a más noticias, historias y contenido emocionante! 🏉🇵🇾 #RugbyEnParaguay #Seguidores #Rugby</p>
       </div>
-      <div class="right">
+      <div className="right">
         <a className="btn-green" href="/blog/2022_11_11">Anterior</a>
         <a className="btn-green margin-left-10" href="/blog/2023_08_04">Siguiente</a>
       </div>

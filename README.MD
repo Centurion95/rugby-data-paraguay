@@ -1,8 +1,24 @@
-# Rugby Data Paraguay
+# Rugby Data Paraguay - Frontend
 
-Frontend project.
+This project showcases the results of rugby matches within my country through a dynamic web platform. Built as a personal endeavor, the website is crafted using React for the frontend and NodeJS with Express for the backend. The data is stored in a MongoDB database, and the entire system is hosted in the cloud.
 
-Author: Rodrigo Centurión
+The platform offers an intuitive user interface designed in React, allowing visitors to seamlessly navigate and explore detailed match results, scores, team statistics, and historical data. Leveraging NodeJS and Express, the backend efficiently manages data retrieval and processing to ensure a responsive and reliable user experience.
+
+By utilizing MongoDB, the project maintains a scalable and adaptable database structure, enabling easy storage and retrieval of match-related information. This cloud-hosted solution ensures accessibility and availability from anywhere, enhancing the platform's reach and usability.
+
+Through this project, I aim to demonstrate my skills in full-stack development, utilizing modern technologies to present comprehensive rugby match data in an engaging and informative manner.
+
+
+### Visit the website: https://rugby-data-paraguay.vercel.app
+
+#### Frontend project: https://github.com/Centurion95/rugby-data-paraguay
+
+#### Backend project: https://github.com/Centurion95/rugby-data-paraguay-api
+
+### Author: [Rodrigo Centurión][1]
+[1]: https://www.linkedin.com/in/rcenturion95
+
+
 
 ## Table of Contents
 
@@ -36,7 +52,12 @@ npm start
 
 2. Open your web browser and navigate to `http://localhost:3000` to access the application.
 
-## Versiones
+## Versiones (desc)
+
+#### rc95 08/09/2024 01:41
+- Se eliminan dependencias innecesarias: @emoticon/react, mui-datatables
+- Se eliminan comentarios personales, de ahora en más ver git
+- Cambios en el README
 
 #### rc95 07/09/2024 22:42
 - Mejoras en el SEO: se agrega `/public/sitemap.xml`, generado por https://www.mysitemapgenerator.com/
@@ -175,3 +196,16 @@ npm start
 - Primer commit
 - Prototipo de Layout
 - Hoja de estilos
+
+
+___
+### Versión anterior (front y back juntos bajo un mismo proyecto)
+#### rc95 - 25/08/2022 22:33
+- Reestructuración de carpetas, separación de funcionalidades
+- Implementamos la librería `axios`
+- Se agregan los archivos de imagenes para los botones
+- Implementamos la librería `react-modal`
+- Separamos la vista pricipal de los componentes
+
+#### rc95 - 25/08/2022 00:06
+- Primera versión del proyecto

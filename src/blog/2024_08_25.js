@@ -39,7 +39,7 @@ const Page = () => {
         <p>Te invito a seguir acompañándome en este viaje, donde la tecnología y el deporte se entrelazan para crear algo verdaderamente único. ¿Tienes alguna idea o sugerencia sobre cómo la inteligencia artificial podría impactar el mundo del rugby? ¡Me encantaría saberlo! Déjame tu comentario o envíame un mensaje, y sigamos esta conversación.</p>
 
       </div>
-      <div class="right">
+      <div className="right">
         <a className="btn-green" href="/blog/2024_08_19">Anterior</a>
         <a className="btn-green margin-left-10" href="/blog/2024_08_26">Siguiente</a>
       </div>

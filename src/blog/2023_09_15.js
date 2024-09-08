@@ -32,7 +32,7 @@ const Page = () => {
 
         <p>Gracias por su apoyo constante. Esperamos seguir creciendo y mejorando en los años venideros. ¡Vamos por más éxitos en el mundo del rugby en Paraguay! 🏉🇵🇾 #Aniversario #RugbyDataParaguay</p>
       </div>
-      <div class="right">
+      <div className="right">
         <a className="btn-green" href="/blog/2023_08_04">Anterior</a>
         <a className="btn-green margin-left-10" href="/blog/2023_09_15_2">Siguiente</a>
       </div>

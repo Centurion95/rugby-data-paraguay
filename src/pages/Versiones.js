@@ -15,6 +15,16 @@ const Page = () => {
       <h1>Versiones</h1>
 
       <div className="container-c">
+        <p><u>Versión 08/09/2024 00:43</u></p>
+        <ul>
+          <li>Se eliminan dependencias innecesarias: @emoticon/react, mui-datatables</li>
+          <li>Se eliminan comentarios personales, de ahora en más ver git</li>
+          <li>Cambios en el README</li>
+        </ul>
+      </div>
+      <br />
+
+      <div className="container-c">
         <p><u>Versión 07/09/2024 22:42</u></p>
         <ul>
           <li>Mejoras en el SEO: se agrega `/public/sitemap.xml`, generado por https://www.mysitemapgenerator.com/</li>

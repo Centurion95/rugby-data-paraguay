@@ -34,7 +34,7 @@ const Page = () => {
 
         <p>Con estas derrotas las chicas de Fernando de la Mora Rugby se ubican en la posición 12 en la tabla con 4 puntos. </p>
       </div>
-      <div class="right">
+      <div className="right">
         <a className="btn-green" href="/blog/2024_08_05">Anterior</a>
         <a className="btn-green margin-left-10" href="/blog/2024_08_25">Siguiente</a>
       </div>

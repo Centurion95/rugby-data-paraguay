@@ -39,7 +39,7 @@ const Page = () => {
 
         <p>Este es solo el comienzo de un viaje apasionante. Nos comprometemos a brindarte una experiencia única en línea para todos los fanáticos del rugby en Paraguay. ¡Gracias por unirte a nosotros en este emocionante viaje!</p>
       </div>
-      <div class="right">
+      <div className="right">
         <a className="btn-green margin-left-10" href="/blog/2022_09_30">Siguiente</a>
       </div>
     </div>

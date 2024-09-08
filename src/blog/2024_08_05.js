@@ -34,7 +34,7 @@ const Page = () => {
 
         <p>Los partidos de la fecha para el Fernando de la Mora Rugby Fem fueron dos, a las 09.30 hs se enfrentaron al Área 1 de Ciudad del Este y el esultado fue tambien ajustado de 19 a 10 a favor de Taguato. Con 2 Trys convertidos por el equipo fernandino.</p>
       </div>
-      <div class="right">
+      <div className="right">
         <a className="btn-green" href="/blog/2023_10_22">Anterior</a>
         <a className="btn-green margin-left-10" href="/blog/2024_08_19">Siguiente</a>
       </div>

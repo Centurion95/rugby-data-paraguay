@@ -1,5 +1,5 @@
 import Axios from 'axios'
-import React, { useEffect, useState, useRef } from 'react'
+import React, { useEffect, useState } from 'react'
 
 import FrmFecha from '../components/FrmFecha'
 import { links } from '../utils/links'
@@ -25,7 +25,6 @@ function Page() {
 
     await Axios.get(this_url)
       .then((response) => {
-        // console.table(response.data)
         setElements(response.data)
 
         //seleccionamos el 1er torneo..
@@ -54,7 +53,6 @@ function Page() {
       params: { id_tournament: torneo_id }
     })
       .then((response) => {
-        // console.table(response.data)
         const matches = response.data
         const fechas = {}
 
@@ -66,7 +64,6 @@ function Page() {
         })
 
         setArrayFechas(Object.values(fechas))
-        // console.log(arrayFechas)
       })
 
     setIsLoading(false)
@@ -102,16 +99,9 @@ function Page() {
               new Date().getFullYear() - 1,
               new Date().getFullYear() - 2,
               new Date().getFullYear() - 3,
-              // new Date().getFullYear() - 4,
             ].map((element) => {
               return (<option key={element} value={element}>{element}</option>)
             })}
-
-            {/* {[...new Array(5)].map((_, i) => {
-              const year = new Date().getFullYear() - i - 1
-              return <option key={year} value={year}>{year}</option>
-            })} */}
-
           </select>
         </div>
       </div>

@@ -1,5 +1,5 @@
 import Axios from 'axios'
-import React, { useEffect, useState, useRef } from 'react'
+import React, { useEffect, useState } from 'react'
 
 import FrmFecha from '../components/FrmFecha'
 import Spinner from '../components/Spinner'
@@ -22,7 +22,6 @@ function Page(props) {
 
     await Axios.get(this_url)
       .then((response) => {
-        // console.table(response.data)
         setElements(response.data)
 
         //seleccionamos el 1er torneo..
@@ -51,7 +50,6 @@ function Page(props) {
       params: { id_tournament: torneo_id }
     })
       .then((response) => {
-        // console.table(response.data)
         const matches = response.data
         const fechas = {}
 
@@ -63,7 +61,6 @@ function Page(props) {
         })
 
         setArrayFechas(Object.values(fechas))
-        // console.log(arrayFechas)
       })
 
     setIsLoading(false)
@@ -79,7 +76,6 @@ function Page(props) {
     <div>
       {isLoading && <Spinner />}
 
-      {/* <h1>Rugby Data Paraguay</h1> */}
       <h1>Torneos en curso</h1>
 
       <div className="row">

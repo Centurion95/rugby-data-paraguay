@@ -32,7 +32,7 @@ const Page = () => {
 
         <p>Apoyemos juntos el rugby universitario en Paraguay. 🇵🇾 ¡Que empiecen los juegos! 🏆</p>
       </div>
-      <div class="right">
+      <div className="right">
         <a className="btn-green" href="/blog/2022_09_30">Anterior</a>
         <a className="btn-green margin-left-10" href="/blog/2022_12_02">Siguiente</a>
       </div>

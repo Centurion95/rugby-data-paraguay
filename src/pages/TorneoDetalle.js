@@ -19,11 +19,10 @@ import es from 'date-fns/locale/es'
 registerLocale('es', es)
 setDefaultLocale('es')
 
-const { getFormatedDateTime, getFormatedDate_to_ISO_8601, getFormatedDate_from_ISO_8601, mostrarError, mostrarConfirmarCancelar, getDecodedToken } = require('../utils/utils')
+const { getFormatedDateTime, mostrarError, mostrarConfirmarCancelar, getDecodedToken } = require('../utils/utils')
 
 function Page() {
   const { id_tournament } = useParams()
-  // console.log(id_tournament)
 
   const this_url = process.env.REACT_APP_SERVER + links.TORNEO_DETALLES
   const estadio_url = process.env.REACT_APP_SERVER + links.ESTADIOS
@@ -57,7 +56,7 @@ function Page() {
 
   const navigate = useNavigate()
   useEffect(() => {
-    //rc95 08/09/2023 22:59 - si no es admin, redirigimos al LOGIN
+    //si no es admin, redirigimos al LOGIN
     const es_admin = getDecodedToken()?.es_admin
     if (!es_admin) {
       navigate('/login')
@@ -74,30 +73,21 @@ function Page() {
   async function fetchData() {
     await Axios.get(this_url, {
       params: { id_tournament }
-    })
-      .then((response) => {
-        // console.table(response.data)
-        setElements(response.data)
-      })
-      .catch((error) => mostrarError(error))
+    }).then((response) => {
+      setElements(response.data)
+    }).catch((error) => mostrarError(error))
 
     await Axios.get(estadio_url, {
       headers: { Authorization: localStorage.getItem('token') }
-    })
-      .then((response) => {
-        // console.table(response.data)
-        setEstadio_elements(response.data)
-      })
-      .catch((error) => mostrarError(error))
+    }).then((response) => {
+      setEstadio_elements(response.data)
+    }).catch((error) => mostrarError(error))
 
     await Axios.get(club_url, {
       headers: { Authorization: localStorage.getItem('token') }
-    })
-      .then((response) => {
-        // console.table(response.data)
-        setClub_elements(response.data)
-      })
-      .catch((error) => mostrarError(error))
+    }).then((response) => {
+      setClub_elements(response.data)
+    }).catch((error) => mostrarError(error))
 
     setIsLoading(false)
   }
@@ -128,16 +118,6 @@ function Page() {
       order_numberRef.current.focus()
       return mostrarError(`Debe ingresar el numero de partido!`)
     }
-
-    // if (id_stadium.trim() === '') {
-    //   id_stadiumRef.current.focus()
-    //   return mostrarError(`Debe seleccionar el estadio!`)
-    // }
-
-    // if (date === '') {
-    //   // dateRef.current.focus()
-    //   return mostrarError(`Debe ingresar la fecha del partido!`)
-    // }
 
     if (id_local_team.trim() === '') {
       id_local_teamRef.current.focus()
@@ -212,7 +192,6 @@ function Page() {
     XLSX.writeFile(wb, id_tournament + ".xlsx")
   }
 
-  //rc95 21/08/2023 20:18
   const nroFecha_onBlur = () => {
     setOrder_number(elements.length + 1)
   }
@@ -265,9 +244,6 @@ function Page() {
             <div className="row">
               <div className="col-25"><label className='label-left'>Fecha</label></div>
               <div className="col-75">
-                {/* <input type="date" className="input-right" required
-                  value={date} onChange={e => setDate(e.target.value)} ref={dateRef} /> */}
-
                 <DatePicker
                   ref={dateRef}
                   selected={date}
@@ -349,7 +325,6 @@ function Page() {
             <th>Local</th>
             <th>Visitante</th>
             <th>Resultado</th>
-            {/* <th>Fecha creación</th> */}
             <th colSpan={2}>
               {elements.length !== 0
                 && <button className="btn-green" onClick={exportToXLSX}>Exportar XLSX</button>
@@ -361,7 +336,6 @@ function Page() {
           {elements.length === 0
             ? <tr><td>No hay registros</td></tr>
             : elements.map((element) => {
-              // const updatedAt = getFormatedDateTime(new Date(element.updatedAt))
               const date = element.date && getFormatedDateTime(new Date(element.date)).slice(0, -3)
               return (
                 <tr key={element._id} >
@@ -376,7 +350,6 @@ function Page() {
                     {element.id_visiting_team?.name.replace("Rugby", "").replace("&", "").replace("Hockey", "").replace("Club", "")}
                   </td>
                   <td>{element.local_team_final_score} - {element.visiting_team_final_score}</td>
-                  {/* <td>{updatedAt} </td> */}
                   <td>
                     <img src={imgEdit} alt='edit' className='img-button'
                       onClick={() => { editElement(element) }} />

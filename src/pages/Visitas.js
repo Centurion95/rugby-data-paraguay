@@ -31,10 +31,8 @@ function Page() {
 
     await Axios.get(this_url)
       .then((response) => {
-        // console.table(response.data)
         setElements(response.data)
 
-        // Filtrar datos por año seleccionado
         const filteredData = response.data.filter(row => {
           const year = new Date(row.fecha).getFullYear()
           return year === selectedYear

@@ -1,6 +1,5 @@
-import Axios from 'axios'
-import React, { useEffect, useState, useRef } from 'react'
-import { getFormatedDateTime, getFormatedDateTime_short } from '../utils/utils'
+import React, { useEffect } from 'react'
+import { getFormatedDateTime_short } from '../utils/utils'
 
 function Formulario(props) {
   useEffect(() => {
@@ -9,14 +8,12 @@ function Formulario(props) {
 
   return (
     <div className='center'>
-
       <table id="my_table">
         <thead>
           <tr>
             <th colSpan={6}>{props.division} - {props.fecha}</th>
           </tr>
           <tr>
-            {/* <th>Grupo</th> */}
             <th>Cancha</th>
             <th>Fecha</th>
             <th>Equipo 1</th>
@@ -29,12 +26,10 @@ function Formulario(props) {
           {props.matches.length > 0 &&
             <>
               {props.matches.map((match, index) => {
-                // const date = match.date && getFormatedDateTime(new Date(match.date)).slice(0, -3)
                 const date = match.date && getFormatedDateTime_short(new Date(match.date))
                 const time = date?.slice(-5)
                 return (
                   <tr key={match._id}>
-                    {/* <td></td> */}
                     <td>{
                       props.division.includes("Femenino") && index > 0
                         ? '"'
@@ -80,7 +75,6 @@ function Formulario(props) {
                             : match.local_team_final_score === -1 || match.visiting_team_final_score === -1
                               ? (<>(w.o.)</>)
                               : (<>{match.local_team_final_score} - {match.visiting_team_final_score}</>)
-
                       }
                     </td>
                   </tr>

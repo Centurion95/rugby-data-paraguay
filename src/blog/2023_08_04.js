@@ -32,7 +32,7 @@ const Page = () => {
 
         <p>Gracias por su apoyo continuo. Juntos, haremos de este campeonato una temporada memorable. 🇵🇾 #Rugby2023</p>
       </div>
-      <div class="right">
+      <div className="right">
         <a className="btn-green" href="/blog/2022_12_02">Anterior</a>
         <a className="btn-green margin-left-10" href="/blog/2023_09_15">Siguiente</a>
       </div>

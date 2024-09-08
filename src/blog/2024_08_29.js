@@ -41,7 +41,7 @@ const Page = () => {
         <p>El rugby bello lo construimos entre todos. ¡Fuerza, y que este sea el mejor año para quienes realmente aman este deporte!</p >
 
       </div >
-      <div class="right">
+      <div className="right">
         <a className="btn-green" href="/blog/2024_08_26">Anterior</a>
         <a className="btn-green margin-left-10" href="/blog/2024_09_02">Siguiente</a>
       </div>

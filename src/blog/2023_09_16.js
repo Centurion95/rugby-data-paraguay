@@ -32,7 +32,7 @@ const Page = () => {
 
         <p>¡Visita nuestra página web y descubre todo lo que tenemos para ofrecer!</p>
       </div>
-      <div class="right">
+      <div className="right">
         <a className="btn-green" href="/blog/2023_09_15_2">Anterior</a>
         <a className="btn-green margin-left-10" href="/blog/2023_09_22">Siguiente</a>
       </div>

@@ -10,7 +10,6 @@ import imgOk from '../img/ok.png'
 import Spinner from '../components/Spinner'
 
 import * as XLSX from 'xlsx'
-// import MUIDataTable from "mui-datatables"
 
 const { getFormatedDateTime, mostrarError, mostrarConfirmarCancelar, getDecodedToken } = require('../utils/utils')
 
@@ -27,7 +26,7 @@ function Page(props) {
   const [editID, setEditID] = useState(0)
   const [year, setYear] = useState(new Date().getFullYear())
   const [name, setName] = useState('')
-  const [order_number, setOrder_number] = useState(0) //rc95 08/09/2023 21:01
+  const [order_number, setOrder_number] = useState(0)
   const [fkID, setFkID] = useState(0)
 
   const nameRef = useRef(null)
@@ -35,7 +34,7 @@ function Page(props) {
 
   const navigate = useNavigate()
   useEffect(() => {
-    //rc95 08/09/2023 22:59 - si no es admin, redirigimos al LOGIN
+    //si no es admin, redirigimos al LOGIN
     const es_admin = getDecodedToken()?.es_admin
     if (!es_admin) {
       navigate('/login')
@@ -50,52 +49,16 @@ function Page(props) {
   async function fetchData() {
     await Axios.get(this_url, {
       headers: { Authorization: localStorage.getItem('token') }
-    })
-      .then((response) => {
-        // console.table(response.data)
-        setElements(response.data)
-
-        // console.log(response.data)
-        // const keys = Object.keys(response.data[0])
-        // console.log(keys)
-
-        const elementsToRemove = ['_id', 'archived', 'archivedAt', 'updatedAt', '__v'
-          , 'id_continent']
-
-        setColumns(Object.keys(response.data[0])
-          .filter(item => !elementsToRemove.includes(item))
-          .concat({
-            name: "acciones",
-            options: {
-              customBodyRenderLite: (dataIndex, rowIndex) => {
-                return (
-                  <>
-                    <img src={imgEdit} alt='edit' className='img-button'
-                      onClick={() => { editElement(response.data[dataIndex]) }} />
-                    <img src={imgDelete} alt='delete' className='img-button margin-left-10'
-                      onClick={() => { deleteFunction(response.data[dataIndex]) }} />
-                  </>
-                )
-              }
-            },
-          })
-          .concat({
-            name: "id_continent.name",
-          })
-        )
-      })
-      .catch((error) => mostrarError(error))
-
+    }).then((response) => {
+      setElements(response.data)
+    }).catch((error) => mostrarError(error))
 
     if (fk_url) {
       await Axios.get(fk_url, {
         headers: { Authorization: localStorage.getItem('token') }
-      })
-        .then((response) => {
-          // console.table(response.data)
-          setFk_Elements(response.data)
-        })
-        .catch((error) => mostrarError(error))
+      }).then((response) => {
+        setFk_Elements(response.data)
+      }).catch((error) => mostrarError(error))
     }
     setIsLoading(false)
   }
@@ -143,20 +106,12 @@ function Page(props) {
         year: year ?? null,
         order_number: order_number ?? null,
       }
-      // await Axios.post(this_url, newDocument) 
-      //rc95 09/11/2023 00:36 - agregamos headers
+
       await Axios.post(this_url, newDocument, {
         headers: { Authorization: localStorage.getItem('token') }
-      })
-        .catch((error) => mostrarError(error))
+      }).catch((error) => mostrarError(error))
+
     } else { //update
-      // await Axios.patch(this_url + editID, {
-      //   name,
-      //   fk_id: fkID || undefined,
-      //   year: year || undefined,
-      //   order_number: order_number || undefined,
-      // })
-      //rc95 09/11/2023 00:36 - agregamos headers
       await Axios.patch(this_url + editID, {
         name,
         fk_id: fkID || undefined,
@@ -164,8 +119,8 @@ function Page(props) {
         order_number: order_number || undefined,
       }, {
         headers: { Authorization: localStorage.getItem('token') }
-      })
-        .catch((error) => mostrarError(error))
+      }).catch((error) => mostrarError(error))
+
     }
     window.location.reload()
   }
@@ -188,36 +143,6 @@ function Page(props) {
       }
     })
   }
-
-
-  const [columns, setColumns] = useState([])
-
-  const options = {
-    responsive: 'standard',
-    tableBodyHeight: 'auto',
-    tableBodyMaxHeight: '100%',
-
-    customToolbarSelect: (selectedRows, displayData, setSelectedRows) => (
-      <>
-        <img src={imgDelete} alt='delete all' className='img-button margin-right-10'
-          onClick={() => {
-            if (window.confirm(`Are you sure you want to DELETE ${selectedRows.data.length} document(s)?`)) {
-              // Realiza alguna acción personalizada con los datos seleccionados
-              console.log(selectedRows)
-
-              selectedRows.data.forEach(element => {
-                console.log(element)
-                // deleteFunction(response.data[element.dataIndex])
-              })
-
-              setSelectedRows([])
-            }
-          }}
-        />
-      </>
-    ),
-  }
-
 
   const exportToXLSX = () => {
     const wb = XLSX.utils.book_new()
@@ -353,15 +278,6 @@ function Page(props) {
           })}
         </tbody>
       </table>
-
-
-      {/* <MUIDataTable
-      title={"Registros en la base de datos"}
-      data={elements}
-      columns={columns}
-      options={options}
-      /> */}
-
     </div>
   )
 }

@@ -35,21 +35,8 @@ function Page() {
     })
   }
 
-  // const handleProtected = async () => {
-  //   await Axios.get(this_url + 'protegido', {
-  //     headers: { Authorization: token }
-  //   }).then((response) => {
-  //     setMessage(response.data.message)
-  //   }).catch((error) => {
-  //     console.error(error)
-  //     setMessage(error.message)
-  //   })
-  // }
-
   return (
     <div>
-      {/* <h1>Rugby Data Paraguay</h1> */}
-
       <div className="container-c">
         <h2>Iniciar sesión</h2>
 
