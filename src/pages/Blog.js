@@ -7,6 +7,17 @@ const Page = () => {
       <h1>Blog</h1>
 
       <div className="cta-buttons">
+        <a className="cta-button" href="/blog/2024_09_14">
+          <div>
+            <p className='right i'>14/09/2024 12:27 - Horacio Ariel Garcia Cabrera</p>
+            <h2>Rugby Femenino - Este Domingo se juega la ultima fecha antes de las rondas finales</h2>
+            <hr />
+            <p>Ultima fecha del torneo seven femenino de la URP, para algunas correcciones o información que desconocía sobre el formato del torneo femenino, este torneo clausura se ha cambiado el formato, ya que anteriormente todos los torneos eran de rondas todos contra todos.</p>
+          </div>
+        </a>
+      </div>
+
+      <div className="cta-buttons">
         <a className="cta-button" href="/blog/2024_09_02">
           <div>
             <p className='right i'>02/09/2024 15:08 - Horacio Ariel Garcia Cabrera</p>

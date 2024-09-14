@@ -138,7 +138,7 @@ const Page = () => {
       </div >
       <div className="right">
         <a className="btn-green" href="/blog/2024_08_29">Anterior</a>
-        <a className="btn-gray margin-left-10">Siguiente</a>
+        <a className="btn-green margin-left-10" href="/blog/2024_09_14">Siguiente</a>
       </div>
     </div >
   )

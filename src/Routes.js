@@ -37,6 +37,7 @@ import B_2024_08_25 from './blog/2024_08_25'
 import B_2024_08_26 from './blog/2024_08_26'
 import B_2024_08_29 from './blog/2024_08_29'
 import B_2024_09_02 from './blog/2024_09_02'
+import B_2024_09_14 from './blog/2024_09_14'
 
 function App() {
   return (
@@ -91,6 +92,7 @@ function App() {
           <Route exact path="/blog/2024_08_26" element={<B_2024_08_26 />} />
           <Route exact path="/blog/2024_08_29" element={<B_2024_08_29 />} />
           <Route exact path="/blog/2024_09_02" element={<B_2024_09_02 />} />
+          <Route exact path="/blog/2024_09_14" element={<B_2024_09_14 />} />
 
           <Route path="*" element={<div><h1>Error 404: Pagina no encontrada</h1><a className="btn-green" href="/">Volver al inicio...</a></div>} />
         </Routes>
