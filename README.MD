@@ -54,6 +54,9 @@ npm start
 
 ## Versiones (desc)
 
+#### rc95 01/10/2024 22:36
+- En la pantalla ABM de torneo_detalle se agregan las reglas css
+
 #### rc95 08/09/2024 01:41
 - Se eliminan dependencias innecesarias: @emoticon/react, mui-datatables
 - Se eliminan comentarios personales, de ahora en más ver git

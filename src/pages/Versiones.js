@@ -15,6 +15,14 @@ const Page = () => {
       <h1>Versiones</h1>
 
       <div className="container-c">
+        <p><u>Versión 01/10/2024 22:36</u></p>
+        <ul>
+          <li>En la pantalla ABM de torneo_detalle se agregan las reglas css</li>
+        </ul>
+      </div>
+      <br />
+
+      <div className="container-c">
         <p><u>Versión 08/09/2024 00:43</u></p>
         <ul>
           <li>Se eliminan dependencias innecesarias: @emoticon/react, mui-datatables</li>
