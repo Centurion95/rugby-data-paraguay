@@ -343,12 +343,33 @@ function Page() {
                   <td>{element.order_number} </td>
                   <td>{element.id_stadium?.name}</td>
                   <td>{date} </td>
-                  <td className={element.local_team_final_score > element.visiting_team_final_score ? "bgGreen" : undefined}>
-                    {element.id_local_team?.name.replace("Rugby", "").replace("&", "").replace("Hockey", "").replace("Club", "")}
+
+                  <td className={
+                    element.local_team_final_score === 0 && element.visiting_team_final_score === 0
+                      ? ""
+                      : element.local_team_final_score > element.visiting_team_final_score
+                        ? "bgGreen"
+                        : element.local_team_final_score === element.visiting_team_final_score
+                          ? "bgLightGreen"
+                          : element.local_team_final_score === -1
+                            ? "bgRed"
+                            : undefined}>
+                    {element.id_local_team.name}
                   </td>
-                  <td className={element.local_team_final_score < element.visiting_team_final_score ? "bgGreen" : undefined}>
-                    {element.id_visiting_team?.name.replace("Rugby", "").replace("&", "").replace("Hockey", "").replace("Club", "")}
+
+                  <td className={
+                    element.local_team_final_score === 0 && element.visiting_team_final_score === 0
+                      ? ""
+                      : element.local_team_final_score < element.visiting_team_final_score
+                        ? "bgGreen"
+                        : element.local_team_final_score === element.visiting_team_final_score
+                          ? "bgLightGreen"
+                          : element.visiting_team_final_score === -1
+                            ? "bgRed"
+                            : undefined}>
+                    {element.id_visiting_team.name}
                   </td>
+
                   <td>{element.local_team_final_score} - {element.visiting_team_final_score}</td>
                   <td>
                     <img src={imgEdit} alt='edit' className='img-button'
