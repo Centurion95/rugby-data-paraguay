@@ -265,7 +265,7 @@ function Page(props) {
                 <td>{element.year} </td>
                 <td>{element.id_person.identifier_number}</td>
                 <td>{element.id_person.name} </td>
-                <td>{element.id_club.name} </td>
+                <td>{element.id_club?.name} </td>
                 <td>{updatedAt} </td>
                 <td>
                   <img src={imgEdit} alt='edit' className='img-button'
