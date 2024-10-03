@@ -39,13 +39,14 @@ const Page = ({ name, es_admin }) => {
                 <NavDropdown.Item href="/clubes">Clubes</NavDropdown.Item>
                 <NavDropdown.Item href="/estadios">Estadios</NavDropdown.Item>
                 <NavDropdown.Divider />
-                {/* rc95 09/11/2023 00:23 - cambio de alcance para la version 1, no se tendrá ABM de personas */}
-                {/* <NavDropdown.Item href="/tipos_contacto">Tipos de contacto</NavDropdown.Item>
-                <NavDropdown.Item href="/tipos_identificador">Tipos de identificación</NavDropdown.Item>
-                <NavDropdown.Item href="/personas">Personas</NavDropdown.Item>
-                <NavDropdown.Item href="/jugadores">Jugadores</NavDropdown.Item>
-                <NavDropdown.Divider /> */}
                 <NavDropdown.Item href="/torneos">Torneos</NavDropdown.Item>
+                <NavDropdown.Divider />
+                <NavDropdown title="Auxiliares" >
+                  <NavDropdown.Item href="/tipos_contacto">Tipos de contacto</NavDropdown.Item>
+                  <NavDropdown.Item href="/tipos_identificador">Tipos de identificación</NavDropdown.Item>
+                  <NavDropdown.Item href="/personas">Personas</NavDropdown.Item>
+                  <NavDropdown.Item href="/jugadores">Jugadores</NavDropdown.Item>
+                </NavDropdown>
               </NavDropdown>
             }
             <Nav.Link href="/blog">Blog</Nav.Link>
