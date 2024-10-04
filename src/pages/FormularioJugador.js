@@ -114,7 +114,9 @@ function Page(props) {
         id_person,
         id_club,
       }
-      await Axios.post(this_url, newDocument)
+      await Axios.post(this_url, newDocument,
+        { headers: { Authorization: localStorage.getItem('token') } }
+      )
         .then(() => window.location.reload())
         .catch((error) => mostrarError(error))
 
@@ -123,7 +125,8 @@ function Page(props) {
         year,
         id_person,
         id_club,
-      })
+      },
+        { headers: { Authorization: localStorage.getItem('token') } })
         .then(() => window.location.reload())
         .catch((error) => mostrarError(error))
     }
@@ -141,7 +144,9 @@ function Page(props) {
   const deleteFunction = (_id) => {
     mostrarConfirmarCancelar().then(async (result) => {
       if (result.isConfirmed) {
-        await Axios.patch(this_url + _id, { archived: true })
+        await Axios.patch(this_url + _id, { archived: true },
+          { headers: { Authorization: localStorage.getItem('token') } }
+        )
           .then(() => window.location.reload())
           .catch((error) => mostrarError(error))
       }
@@ -154,7 +159,8 @@ function Page(props) {
     if (identifier_number.trim() === '') return
 
     await Axios.get(person_url + 'get_one_by_identifier_number', {
-      params: { identifier_number }
+      params: { identifier_number },
+      headers: { Authorization: localStorage.getItem('token') }
     })
       .then((response) => {
         if (response.data.encontrado === false) {
