@@ -153,7 +153,9 @@ function Page(props) {
         identifier_number,
         id_country,
       }
-      await Axios.post(this_url, newDocument)
+      await Axios.post(this_url, newDocument,
+        { headers: { Authorization: localStorage.getItem('token') } }
+      )
         .then(() => window.location.reload())
         .catch((error) => mostrarError(error))
 
@@ -165,7 +167,8 @@ function Page(props) {
         id_identifier_type,
         identifier_number,
         id_country,
-      })
+      },
+        { headers: { Authorization: localStorage.getItem('token') } })
         .then(() => window.location.reload())
         .catch((error) => mostrarError(error))
     }
@@ -186,7 +189,9 @@ function Page(props) {
   const deleteFunction = (_id) => {
     mostrarConfirmarCancelar().then(async (result) => {
       if (result.isConfirmed) {
-        await Axios.patch(this_url + _id, { archived: true })
+        await Axios.patch(this_url + _id, { archived: true },
+          { headers: { Authorization: localStorage.getItem('token') } }
+        )
           .then(() => window.location.reload())
           .catch((error) => mostrarError(error))
       }
