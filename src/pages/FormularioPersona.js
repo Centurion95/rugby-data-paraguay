@@ -1,6 +1,7 @@
 import Axios from 'axios'
 import React, { useEffect, useState, useRef } from 'react'
 
+import imgNew from '../img/new.png'
 import imgEdit from '../img/edit.png'
 import imgDelete from '../img/delete.png'
 import imgCancel from '../img/cancel.png'
@@ -11,7 +12,7 @@ import * as XLSX from 'xlsx'
 
 import { links } from '../utils/links'
 
-import { useNavigate } from 'react-router-dom'
+import { Link, useNavigate } from 'react-router-dom'
 
 import DatePicker from 'react-datepicker'
 import 'react-datepicker/dist/react-datepicker.css'
@@ -303,6 +304,7 @@ function Page(props) {
       <table>
         <thead>
           <tr>
+            <th></th>
             <th>Nombre</th>
             <th>Fecha nacimiento</th>
             <th>Género</th>
@@ -324,6 +326,11 @@ function Page(props) {
             const updatedAt = getFormatedDateTime(new Date(element.updatedAt))
             return (
               <tr key={element._id} >
+                <td>
+                  <Link to={`/contactos/${element._id}`}>
+                    <img src={imgNew} alt='see details' className='img-button' />
+                  </Link>
+                </td>
                 <td>{element.name} </td>
                 <td>{birthDate} </td>
                 <td>{element.gender} </td>
