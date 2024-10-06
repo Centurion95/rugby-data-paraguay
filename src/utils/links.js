@@ -9,6 +9,7 @@ const links = {
   PERSONAS: "personas/",
   JUGADORES: "jugadores/",
   TORNEOS: "torneos/",
+  CONTACTOS: "contactos/",
   TORNEOS_BY_YEAR: "torneos/by_year/",
   TORNEO_DETALLES: "torneo_detalles/",
   ESTADIOS: "estadios/",

@@ -8,6 +8,7 @@ import Formulario from './pages/Formulario'
 import FormularioPersona from './pages/FormularioPersona'
 import FormularioJugador from './pages/FormularioJugador'
 import TorneoDetalle from './pages/TorneoDetalle'
+import Contacto from './pages/Contacto'
 
 import About from './pages/About'
 import Login from './pages/Login'
@@ -63,7 +64,7 @@ function App() {
           <Route exact path="/torneos" element={<Formulario titulo="Torneos" link={links.TORNEOS} pedirYear />} />
 
           <Route exact path="/torneos/:id_tournament" element={<TorneoDetalle titulo="Detalles del Torneo" link={links.TORNEOS} />} />
-
+          <Route exact path="/contactos/:id_owner" element={<Contacto titulo="Contactos del registro" link={links.CONTACTOS} />} />
 
           <Route exact path="/about" element={<About />} />
 
