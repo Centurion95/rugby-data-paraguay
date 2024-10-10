@@ -252,7 +252,7 @@ function Page(props) {
                 {props.pedirYear &&
                   <>
                     <td>
-                      <Link to={`/torneos/${element._id}`}>
+                      <Link to={`/torneos/${element._id}?name=${element.name}`}>
                         <img src={imgNew} alt='see details' className='img-button' />
                       </Link>
                     </td>
