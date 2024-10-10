@@ -1,5 +1,4 @@
-import { useNavigate, useParams } from 'react-router-dom'
-import { useLocation } from 'react-router-dom';
+import { useNavigate, useParams, useLocation } from 'react-router-dom'
 import Axios from 'axios'
 import React, { useEffect, useState, useRef } from 'react'
 
@@ -25,9 +24,9 @@ const { getFormatedDateTime, mostrarError, mostrarConfirmarCancelar, getDecodedT
 function Page() {
   const { id_tournament } = useParams()
 
-  const location = useLocation();
-  const searchParams = new URLSearchParams(location.search);
-  const name = searchParams.get('name');
+  const location = useLocation()
+  const searchParams = new URLSearchParams(location.search)
+  const name = searchParams.get('name')
 
   const this_url = process.env.REACT_APP_SERVER + links.TORNEO_DETALLES
   const estadio_url = process.env.REACT_APP_SERVER + links.ESTADIOS
