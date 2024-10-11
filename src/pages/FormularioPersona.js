@@ -327,7 +327,7 @@ function Page(props) {
             return (
               <tr key={element._id} >
                 <td>
-                  <Link to={`/contactos/${element._id}`}>
+                  <Link to={`/contactos/${element._id}?name=${element.name}`}>
                     <img src={imgNew} alt='see details' className='img-button' />
                   </Link>
                 </td>
