@@ -1,4 +1,4 @@
-import { useNavigate, useParams } from 'react-router-dom'
+import { useNavigate, useParams, useLocation } from 'react-router-dom'
 import Axios from 'axios'
 import React, { useEffect, useState, useRef } from 'react'
 
@@ -16,6 +16,10 @@ const { getFormatedDateTime, mostrarError, mostrarConfirmarCancelar, getDecodedT
 
 function Page() {
   const { id_owner } = useParams()
+
+  const location = useLocation()
+  const searchParams = new URLSearchParams(location.search)
+  const name = searchParams.get('name')
 
   const this_url = process.env.REACT_APP_SERVER + links.CONTACTOS
   const tipo_contacto_url = process.env.REACT_APP_SERVER + links.TIPO_CONTACTO
@@ -161,6 +165,7 @@ function Page() {
       {isLoading && <Spinner />}
 
       <h1>Contactos del registro</h1>
+      <h4>{name}</h4>
 
       <div className="container-c">
         <h2>{titulo}</h2>
