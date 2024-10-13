@@ -234,7 +234,7 @@ function Page(props) {
         <thead>
           <tr>
             {props.pedirYear && <><th></th><th>Año</th><th>#</th></>}
-            {props.titulo == 'Clubes' && <><th></th></>}
+            {(props.titulo == 'Clubes' || props.titulo == 'Estadios') && <><th></th></>}
             <th>Nombre</th>
             <th>Fecha creación</th>
             <th>{props.fk_titulo}</th>
@@ -260,7 +260,7 @@ function Page(props) {
                     <td>{element.year} </td>
                     <td>{element.order_number} </td>
                   </>}
-                {props.titulo == 'Clubes' &&
+                {(props.titulo == 'Clubes' || props.titulo == 'Estadios') &&
                   <>
                     <td>
                       <Link to={`/contactos/${element._id}?name=${element.name}`}>
