@@ -35,6 +35,12 @@ function Page() {
     })
   }
 
+  function handleKeyDown(event) {
+    if (event.key === 'Enter') {
+      handleLogin()
+      event.preventDefault()
+    }
+  }
   return (
     <div>
       <div className="container-c">
@@ -52,7 +58,8 @@ function Page() {
           <div className="col-25"><label className='label-left'>Constraseña</label></div>
           <div className="col-75">
             <input type="password" className="input-right" required placeholder='Password'
-              value={password} onChange={e => setPassword(e.target.value)} ref={passwordRef} />
+              value={password} onChange={e => setPassword(e.target.value)} ref={passwordRef}
+              onKeyDown={handleKeyDown} />
           </div>
         </div>
 
