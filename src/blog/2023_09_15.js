@@ -1,7 +1,7 @@
 import React from 'react'
 import { Helmet } from 'react-helmet'
 
-const Page = () => {
+export default function Page() {
   // Datos de los metadatos dinámicos
   const title = '1 año de Rugby Data Paraguay'
   const description = 'Descubre contenido exclusivo sobre rugby en Paraguay en nuestro nuevo blog.'
@@ -39,5 +39,3 @@ const Page = () => {
     </div>
   )
 }
-
-export default Page

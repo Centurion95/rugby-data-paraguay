@@ -4,8 +4,7 @@ import CryptoJS from 'crypto-js'
 import { links } from '../utils/links'
 import { mostrarError } from '../utils/utils'
 import { useNavigate } from 'react-router-dom'
-
-function Page() {
+export default function Page() {
   const navigate = useNavigate()
   const this_url = process.env.REACT_APP_SERVER + links.LOGIN
 
@@ -70,5 +69,3 @@ function Page() {
     </div>
   )
 }
-
-export default Page

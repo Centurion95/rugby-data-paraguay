@@ -1,7 +1,7 @@
 import React from 'react'
 import { Helmet } from 'react-helmet'
 
-const Page = () => {
+export default function Page() {
   // Datos de los metadatos dinámicos
   const title = 'Fecha 2 del Rugby Seven Femenino!!'
   const description = 'El Domingo 18 de agosto se llevo a cabo la segunda fecha del torneo clausura del seven femenino de la URP, en esta ocasión el Fernando de la Mora Fem Rugby tuvieron la dura tarea de enfrentarse al campeón y vicecampeón del torneo apertura, primero se enfrentaron con Santa Clara el 2° en el torneo apertura y luego contra Old King el campeón del apertura.'
@@ -41,5 +41,3 @@ const Page = () => {
     </div>
   )
 }
-
-export default Page

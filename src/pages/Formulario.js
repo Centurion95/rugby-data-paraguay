@@ -13,7 +13,7 @@ import * as XLSX from 'xlsx'
 
 const { getFormatedDateTime, mostrarError, mostrarConfirmarCancelar, getDecodedToken } = require('../utils/utils')
 
-function Page(props) {
+export default function Page(props) {
   const this_url = process.env.REACT_APP_SERVER + props.link
   const fk_url = props.fk_link && process.env.REACT_APP_SERVER + props.fk_link
 
@@ -294,5 +294,3 @@ function Page(props) {
     </div>
   )
 }
-
-export default Page

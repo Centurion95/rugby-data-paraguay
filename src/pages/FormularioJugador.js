@@ -12,7 +12,7 @@ import { links } from '../utils/links'
 import { useNavigate } from 'react-router-dom'
 const { getFormatedDateTime, getFormatedDate_to_ISO_8601, getFormatedDate_from_ISO_8601, mostrarError, mostrarConfirmarCancelar, getDecodedToken } = require('../utils/utils')
 
-function Page(props) {
+export default function Page(props) {
   const this_url = process.env.REACT_APP_SERVER + props.link
   const person_url = process.env.REACT_APP_SERVER + links.PERSONAS
   const club_url = process.env.REACT_APP_SERVER + links.CLUBES
@@ -288,5 +288,3 @@ function Page(props) {
     </div>
   )
 }
-
-export default Page

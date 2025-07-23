@@ -20,8 +20,7 @@ registerLocale('es', es)
 setDefaultLocale('es')
 
 const { getFormatedDateTime, mostrarError, mostrarConfirmarCancelar, getDecodedToken } = require('../utils/utils')
-
-function Page() {
+export default function Page() {
   const { id_tournament } = useParams()
 
   const location = useLocation()
@@ -391,5 +390,3 @@ function Page() {
     </div>
   )
 }
-
-export default Page

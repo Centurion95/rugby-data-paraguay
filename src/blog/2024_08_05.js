@@ -1,7 +1,7 @@
 import React from 'react'
 import { Helmet } from 'react-helmet'
 
-const Page = () => {
+export default function Page() {
   // Datos de los metadatos dinámicos
   const title = 'Empezó el torneo clausura de Rugby Seven Femenino'
   const description = 'Este domingo 4 de agosto empezó el torneo clausura de Rugby Seven Femenino, torneo organizado por la Union de Rugby del Paraguay (URP), este año se cuenta con 14 equipos de todos los rincones del país y por 3 año consecutivo se presenta el Fernando de la Mora Rugby Fem en este torneo.'
@@ -41,5 +41,3 @@ const Page = () => {
     </div>
   )
 }
-
-export default Page

@@ -1,7 +1,7 @@
 import React from 'react'
 import { Helmet } from 'react-helmet'
 
-const Page = () => {
+export default function Page() {
   // Datos de los metadatos dinámicos
   const title = 'CURDA se corona campeón del torneo oficial 2023 tras una victoria reñida contra San José - Rugby en Paraguay'
   const description = 'El equipo de rugby CURDA ha dejado una huella imborrable en la historia del deporte paraguayo al consagrarse campeón del torneo oficial 2023. En una emocionante batalla contra San José, el equipo CURDA logró imponerse con un marcador de 29 a 25 en el Estadio "Héroes del Curupayty" el pasado sábado 21 de octubre de 2023.'
@@ -46,5 +46,3 @@ const Page = () => {
     </div>
   )
 }
-
-export default Page

@@ -2,7 +2,7 @@ import React from 'react'
 import { Helmet } from 'react-helmet'
 import img_whatsapp from '../img/logos/whatsapp.png'
 
-const Page = () => {
+export default function Page() {
   // Datos de los metadatos dinámicos
   const title = 'Lanzamos la comunidad de WhatsApp de Rugby en Paraguay'
   const description = 'Descubre contenido exclusivo sobre rugby en Paraguay en nuestro nuevo blog.'
@@ -42,5 +42,3 @@ const Page = () => {
     </div>
   )
 }
-
-export default Page

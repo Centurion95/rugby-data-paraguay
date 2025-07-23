@@ -1,293 +1,209 @@
 import React from 'react'
 
-import img_paraguay from '../img/paraguay.jpg'
-import img_facebook from '../img/logos/facebook.png'
-import img_github from '../img/logos/github.png'
-import img_instagram from '../img/logos/instagram.png'
-import img_linkedin from '../img/logos/linkedin.png'
-import img_threads from '../img/logos/threads.png'
-import img_whatsapp from '../img/logos/whatsapp.png'
-import img_x from '../img/logos/x.png'
+const versiones = [
+  {
+    fecha: '22/07/2025 22:18',
+    cambios: [
+      'Pequeños ajustes en las declaraciones de componentes .js (para declarar y exportar en una sola línea)',
+      'La pagina `Acerca de` ahora se llama `Nosotros`',
+      'Se refactoriza el archivo `Versiones.js` y las redes sociales se separan y se muestran solo en `Nosotros`',
+      'En el footer agregamos el enlace al LinkTree',
+      'Se agregan los colaboradores en la pagina `Nosotros` y se retoca la estética, se resumen las reds sociales en Linktree',
+    ]
+  },
+  {
+    fecha: '01/10/2024 22:36',
+    cambios: ['En la pantalla ABM de torneo_detalle se agregan las reglas css']
+  },
+  {
+    fecha: '08/09/2024 00:43',
+    cambios: [
+      'Se eliminan dependencias innecesarias: @emoticon/react, mui-datatables',
+      'Se eliminan comentarios personales, de ahora en más ver git',
+      'Cambios en el README'
+    ]
+  },
+  {
+    fecha: '07/09/2024 22:42',
+    cambios: ['Mejoras en el SEO: se agrega /public/sitemap.xml']
+  },
+  {
+    fecha: '27/08/2024 00:05',
+    cambios: [
+      'Mejoras en el SEO según seobility.net',
+      'Se eliminan ficheros innecesarios'
+    ]
+  },
+  {
+    fecha: '26/08/2024 23:44',
+    cambios: [
+      'Omitimos la cursiva en el Blog',
+      'En "Torneos anteriores" habilitamos los años 2023, 2022 y 2021'
+    ]
+  },
+  {
+    fecha: '25/08/2024 21:07',
+    cambios: [
+      'En la página "Visitas" se agregó un selector de años',
+      'Se actualizan icono e imagen de perfil',
+      'Se agrega el módulo "Estados"',
+      'Se modifican asides y layout',
+      'Correcciones de CSS para elementos fuera de lugar',
+      'Botones de navegación en el blog',
+      'Página de Error 404'
+    ]
+  },
+  {
+    fecha: '19/06/2024 21:41',
+    cambios: [
+      'Mejoras SEO en public/',
+      '`index.html` modificado, se crea `robots.txt`'
+    ]
+  },
+  {
+    fecha: '09/11/2023 10:40',
+    cambios: [
+      'Se elimina ABM de personas',
+      'Se agregan headers a POST/PATCH',
+      'Sección VISITAS',
+      'Implementación de `chart.js`'
+    ]
+  },
+  {
+    fecha: '22/10/2023 18:57',
+    cambios: [
+      'Sección BLOG',
+      'BOOTSTRAP para NAVBAR',
+      'Vista VERSIONES para usuarios logueados',
+      'Cambios en el manifest'
+    ]
+  },
+  {
+    fecha: '16/09/2023 16:30',
+    cambios: [
+      'Mejoras responsive',
+      'Cambio de logos',
+      'Separación de "acerca de" y "versiones"'
+    ]
+  },
+  {
+    fecha: '14/09/2023 04:04',
+    cambios: ['Primeros trabajos para responsive']
+  },
+  {
+    fecha: '08/09/2023 23:04',
+    cambios: [
+      'Protección de vistas administrativas',
+      'Redirección al LOGIN si se fuerza URL'
+    ]
+  },
+  {
+    fecha: '08/09/2023 22:29',
+    cambios: [
+      'Cambio de icono web',
+      'RRSS del Acerca de ahora con imágenes'
+    ]
+  },
+  {
+    fecha: '08/09/2023 21:59',
+    cambios: [
+      'Se implementa `order_number` en torneos',
+      'Fix en async/await'
+    ]
+  },
+  {
+    fecha: '05/09/2023 03:02',
+    cambios: [
+      'Carga de resultados torneos oficiales 2023',
+      'Visualización de walkovers, empates, libres',
+      'Fixture femenino (seven)',
+      'Partidos no disputados',
+      'Tablas centradas'
+    ]
+  },
+  {
+    fecha: '28/08/2023 00:24',
+    cambios: [
+      'Pantalla principal funcional con selección de torneos',
+      'Funciona también "torneos anteriores"'
+    ]
+  },
+  {
+    fecha: '27/08/2023 04:05',
+    cambios: [
+      'Carga inicial tabla users',
+      'Estructura login (front y back)',
+      'Pantalla LOGIN implementada'
+    ]
+  },
+  {
+    fecha: '26/08/2023 21:30',
+    cambios: [
+      'Creación de datos: estados, ciudades, clubes, estadios',
+      'Actualización de torneos',
+      'Conteo de visitas en cada página'
+    ]
+  },
+  {
+    fecha: '12/08/2023 02:18',
+    cambios: [
+      'Migración backend de AWS a Vercel',
+      'Fix en vistas admin',
+      'Función para obtener torneos',
+      'Torneos 2021–2023 pre-poblados en backend'
+    ]
+  },
+  {
+    fecha: '09/08/2023 19:56',
+    cambios: [
+      'Página "Acerca de"',
+      'Menú y submenú depurados',
+      'Optimización página principal',
+      'Vistas protegidas ocultas',
+      'Vista "Torneos Anteriores" agregada'
+    ]
+  },
+  {
+    fecha: '05/07/2023',
+    cambios: [
+      'Spinner implementado',
+      'Refactorización de código',
+      'Cambios en README'
+    ]
+  },
+  {
+    fecha: '02/07/2023',
+    cambios: ['Deploy en Vercel y AWS']
+  },
+  {
+    fecha: '29/06/2023',
+    cambios: ['Se implementa sweetalert2']
+  }
+]
 
-const Page = () => {
+function RegistroVersion({ fecha, cambios }) {
   return (
-    <div>
-      <h1>Versiones</h1>
+    <article className="container-c mb-4">
+      <p><u>Versión {fecha}</u></p>
+      <ul className="list-disc ml-5">
+        {cambios.map((item, idx) => (
+          <li key={idx}>{item}</li>
+        ))}
+      </ul>
+    </article>
+  )
+}
 
-      <div className="container-c">
-        <p><u>Versión 01/10/2024 22:36</u></p>
-        <ul>
-          <li>En la pantalla ABM de torneo_detalle se agregan las reglas css</li>
-        </ul>
-      </div>
-      <br />
-
-      <div className="container-c">
-        <p><u>Versión 08/09/2024 00:43</u></p>
-        <ul>
-          <li>Se eliminan dependencias innecesarias: @emoticon/react, mui-datatables</li>
-          <li>Se eliminan comentarios personales, de ahora en más ver git</li>
-          <li>Cambios en el README</li>
-        </ul>
-      </div>
-      <br />
-
-      <div className="container-c">
-        <p><u>Versión 07/09/2024 22:42</u></p>
-        <ul>
-          <li>Mejoras en el SEO: se agrega `/public/sitemap.xml`, generado por https://www.mysitemapgenerator.com/</li>
-        </ul>
-      </div>
-      <br />
-
-      <div className="container-c">
-        <p><u>Versión 27/08/2024 00:05</u></p>
-        <ul>
-          <li>Mejoras en el SEO según seobility.net</li>
-          <li>Se eliminan ficheros innecesarios</li>
-        </ul>
-      </div>
-      <br />
-
-      <div className="container-c">
-        <p><u>Versión 26/08/2024 23:44</u></p>
-        <ul>
-          <li>Omitimos la cursiva en el Blog</li>
-          <li>En "Torneos anteriores" habilitamos los años 2023, 2022 y 2021</li>
-        </ul>
-      </div>
-      <br />
-
-      <div className="container-c">
-        <p><u>Versión 25/08/2024 21:07</u></p>
-        <ul>
-          <li>En la pagina "Visitas" se agregó un selector de años y el gráfico filtra según este dato</li>
-          <li>Se actualizan el icono y la imagen de perfil de la web</li>
-          <li>Se agrega el modulo "Estados" en la sección de "Administración"</li>
-          <li>Se modifica la estructura del layout para ingresar 2 "asides" alrededor del "main"</li>
-          <li>Se modifica el CSS para corregir el encuadre de los elementos que se estaban encimando y escapando de los DIV padres</li>
-          <li>Se modifica el CSS en los articulos del blog para mejorar el aspecto y se agregan botones de navegación</li>
-          <li>Se configura "Error 404: Pagina no encontrada"</li>
-        </ul>
-      </div>
-      <br />
-
-      <div className="container-c">
-        <p><u>Versión 19/06/2024 21:41</u></p>
-        <ul>
-          <li>Cambios para mejorar el SEO, en la carpeta public:</li>
-          <ul>
-            <li> Se modifica el archivo `index.html`</li>
-            <li> Se crea el archivo `robots.txt`</li>
-          </ul>
-        </ul>
-      </div>
-      <br />
-
-      <div className="container-c">
-        <p><u>Versión 09/11/2023 10:40</u></p>
-        <ul>
-          <li>Cambio de alcance para la version 1, no se tendrá ABM de personas</li>
-          <li>Se agregan los `headers` faltantes en los POST y PATCH</li>
-          <li>Se agrega la sección VISITAS</li>
-          <li>Se implementa `chart.js`</li>
-        </ul>
-      </div>
-      <br />
-
-      <div className="container-c">
-        <p><u>Versión 22/10/2023 18:57</u></p>
-        <ul>
-          <li>Se agrega la sección BLOG</li>
-          <li>Se agrega BOOTSTRAP para el NAVBAR</li>
-          <li>Se agrega la sección VERSIONES para el usuario logueado</li>
-          <li>Cambios en el manifest</li>
-        </ul>
-      </div>
-      <br />
-
-      <div className="container-c">
-        <p><u>Versión 16/09/2023 16:30</u></p>
-        <ul>
-          <li>Mas trabajos para responsive</li>
-          <li>Se cambian los logos</li>
-          <li>Se separa el "acerca de" de "versiones"</li>
-        </ul>
-      </div>
-      <br />
-
-      <div className="container-c">
-        <p><u>Versión 14/09/2023 04:04</u></p>
-        <ul>
-          <li>Primeros trabajos para convertir a responsive</li>
-        </ul>
-      </div>
-      <br />
-
-      <div className="container-c">
-        <p><u>Versión 08/09/2023 23:04</u></p>
-        <ul>
-          <li>Ahora las vistas administrativas estan protegidas</li>
-          <li>Si se trata de forzar una url, se redirigide al LOGIN</li>
-        </ul>
-      </div>
-      <br />
-
-      <div className="container-c">
-        <p><u>Versión 08/09/2023 22:29</u></p>
-        <ul>
-          <li>Se cambia el icono de la web!</li>
-          <li>En el acerca de, se reemplazan los links de las RRSS por imagenes</li>
-        </ul>
-      </div>
-      <br />
-
-      <div className="container-c">
-        <p><u>Versión 08/09/2023 21:59</u></p>
-        <ul>
-          <li>Se implementa "order_number" en "torneos"</li>
-          <li>Pequeña corrección de bug en "async/await"</li>
-        </ul>
-      </div>
-      <br />
-
-      <div className="container-c">
-        <p><u>Versión 05/09/2023 03:02</u></p>
-        <ul>
-          <li>Cargados todos los resultados de los torneos "oficiales 2023" a la fecha</li>
-          <li>Optimizaciones en las visualizaciones de:</li>
-          <ul>
-            <li>Los (w.o.) "walkover"</li>
-            <li>Los empates</li>
-            <li>Los equipos libres en la fecha</li>
-            <li>El fixture para femenino (seven)</li>
-            <li>Los partidos aun no disputados</li>
-            <li>Se centran las tablas de las fechas en la web</li>
-          </ul>
-        </ul>
-      </div>
-      <br />
-
-      <div className="container-c">
-        <p><u>Versión 28/08/2023 00:24</u></p>
-        <ul>
-          <li>Ya funciona la pantalla principal, se puede seleccionar el torneo y se actualizan las fechas/partidos en pantalla</li>
-          <li>Lo mismo para la pantalla de torneos anteriores</li>
-        </ul>
-      </div>
-      <br />
-
-      <div className="container-c">
-        <p><u>Versión 27/08/2023 04:05</u></p>
-        <ul>
-          <li>Se cargan los datos para la tabla users</li>
-          <li>Se realizan los cambios estructurales en el front y el back para el LOGIN</li>
-          <li>Se implementa la pantalla LOGIN en el front</li>
-        </ul>
-      </div>
-      <br />
-
-      <div className="container-c">
-        <p><u>Versión 26/08/2023 21:30</u></p>
-        <ul>
-          <li>Se crean los datos para las tablas: estados, ciudades, clubes, estadios</li>
-          <li>Se actualizan los datos del ultimo torneo en todas las divisiones</li>
-          <li>Se agrega un esquema para conteo de visitas en cada pagina</li>
-        </ul>
-      </div>
-      <br />
-
-      <div className="container-c">
-        <p><u>Versión 12/08/2023 02:18</u></p>
-        <ul>
-          <li>Se migra el backend de AWS a VERCEL</li>
-          <li>Se corrige el bug en las vistas de administración</li>
-          <li>En el "home" y "torneos anteriores" se agrega la función para obtener los torneos</li>
-          <li>En el backend se pre-poblan los torneos "oficiales" del 2023, 2022 y 2021</li>
-        </ul>
-      </div>
-      <br />
-
-      <div className="container-c">
-        <p><u>Versión 09/08/2023 19:56</u></p>
-        <ul>
-          <li>Se agrega la pagina "Acerca de"</li>
-          <li>Se depura el menu / submenu</li>
-          <li>Se optimiza la pagina principal</li>
-          <li>Se ocultan las vistas protegidas</li>
-          <li>Se agrega la vista secundaria "Torneos Anteriores"</li>
-        </ul>
-      </div>
-      <br />
-
-      <div className="container-c">
-        <p><u>Versión 05/07/2023</u></p>
-        <ul>
-          <li>Se implementa spinner</li>
-          <li>Refactorización de codigo</li>
-          <li>Cambios en el readme (git)</li>
-        </ul>
-      </div>
-      <br />
-
-      <div className="container-c">
-        <p><u>Versión 02/07/2023</u></p>
-        <ul>
-          <li>Deploy en Vercel y AWS</li>
-        </ul>
-      </div>
-      <br />
-
-      <div className="container-c">
-        <p><u>Versión 29/06/2023</u></p>
-        <ul>
-          <li>Se implementa sweetalert2</li>
-        </ul>
-      </div>
-      <br />
-
-      <h1>Redes Sociales</h1>
-      <div className="container-c">
-        <div className="flex-rows">
-          <div className="column">
-            <img alt="foto" src={img_paraguay}
-              width="160" height="160" className="avatar avatar-user border" />
-          </div>
-          <div className="column margin-left-10">
-            <h3>Rugby Data Paraguay</h3>
-            <ul>
-              <a target="_blank" href='https://www.instagram.com/rugby_data_paraguay/'><img src={img_instagram} alt='Instagram' className='margin-left-10' /></a>
-              <a target="_blank" href='https://chat.whatsapp.com/CxOlZsPcKndFLs0W2E8fUP'><img src={img_whatsapp} alt='WhatsApp' className='margin-left-10' /></a>
-              <a target="_blank" href='https://www.facebook.com/rugby.data.paraguay'><img src={img_facebook} alt='Facebook' className='margin-left-10' /></a>
-              <a target="_blank" href='https://x.com/RugbyDataPy'><img src={img_x} alt='X' className='margin-left-10' /></a>
-              <a target="_blank" href='https://www.threads.net/@rugby_data_paraguay'><img src={img_threads} alt='Threads' className='margin-left-10 img48x48' /></a>
-            </ul>
-          </div>
-        </div>
-      </div>
-      <br />
-
-      <h1>Desarrollo del proyecto</h1>
-      <div className="container-c">
-        <div className="flex-rows">
-          <div className="column">
-            <img alt="foto" src="https://avatars.githubusercontent.com/u/22380683?v=4"
-              width="160" height="160" className="avatar avatar-user border" />
-          </div>
-          <div className="column margin-left-10">
-            <h3>Rodrigo Centurión</h3>
-            <p>Software Engineer - Fullstack Developer</p>
-            <ul>
-              <a target="_blank" href='https://github.com/Centurion95'><img src={img_github} alt='Github' className='margin-left-10' /></a>
-              <a target="_blank" href='https://www.linkedin.com/in/rcenturion95/'><img src={img_linkedin} alt='LinkedIn' className='margin-left-10' /></a>
-            </ul>
-          </div>
-        </div>
-      </div>
-      <br />
+export default function Page() {
+  return (
+    <div className="px-6 py-8 text-gray-800 dark:text-white">
+      <section>
+        <h1 className="text-2xl font-bold mb-6">Historial de Versiones</h1>
+        {versiones.map((ver, index) => (
+          <RegistroVersion key={index} fecha={ver.fecha} cambios={ver.cambios} />
+        ))}
+      </section>
 
     </div>
   )
 }
-
-export default Page

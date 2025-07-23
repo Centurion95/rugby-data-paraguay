@@ -13,8 +13,7 @@ import * as XLSX from 'xlsx'
 import { links } from '../utils/links'
 
 const { getFormatedDateTime, mostrarError, mostrarConfirmarCancelar, getDecodedToken } = require('../utils/utils')
-
-function Page() {
+export default function Page() {
   const { id_owner } = useParams()
 
   const location = useLocation()
@@ -248,5 +247,3 @@ function Page() {
     </div>
   )
 }
-
-export default Page

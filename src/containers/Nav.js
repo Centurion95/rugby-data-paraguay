@@ -7,7 +7,7 @@ import Nav from 'react-bootstrap/Nav'
 import Navbar from 'react-bootstrap/Navbar'
 import NavDropdown from 'react-bootstrap/NavDropdown'
 
-const Page = ({ name, es_admin }) => {
+export default function Page({ name, es_admin }) {
   const navigate = useNavigate()
   function cerrarSesion() {
     localStorage.removeItem('token')
@@ -50,7 +50,7 @@ const Page = ({ name, es_admin }) => {
               </NavDropdown>
             }
             <Nav.Link href="/blog">Blog</Nav.Link>
-            <Nav.Link href="/about">Acerca de</Nav.Link>
+            <Nav.Link href="/about">Nosotros</Nav.Link>
             {name
               ?
               <NavDropdown title={name} id="basic-nav-dropdown">
@@ -69,5 +69,3 @@ const Page = ({ name, es_admin }) => {
     </Navbar>
   )
 }
-
-export default Page

@@ -1,7 +1,7 @@
 import React from 'react'
 import { Helmet } from 'react-helmet'
 
-const Page = () => {
+export default function Page() {
   // Datos de los metadatos dinámicos
   const title = 'Rugby en Juegos Universitarios UNA 2022: Rugby Data Paraguay'
   const description = '¡Únete a nuestra nueva aventura en Instagram! Rugby Data Paraguay te trae momentos destacados, perfiles de jugadores y noticias emocionantes.'
@@ -39,5 +39,3 @@ const Page = () => {
     </div>
   )
 }
-
-export default Page

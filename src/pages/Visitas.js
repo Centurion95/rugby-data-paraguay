@@ -5,8 +5,7 @@ import Spinner from '../components/Spinner'
 import { links } from '../utils/links'
 
 import LineChart from '../components/LineChart'
-
-function Page() {
+export default function Page() {
   const this_url = process.env.REACT_APP_SERVER + links.VISITAS
   const [isLoading, setIsLoading] = useState(true)
   const [elements, setElements] = useState([])
@@ -79,5 +78,3 @@ function Page() {
     </div>
   )
 }
-
-export default Page

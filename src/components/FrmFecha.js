@@ -1,7 +1,7 @@
 import React, { useEffect } from 'react'
 import { getFormatedDateTime_short } from '../utils/utils'
 
-function Formulario(props) {
+export default function Formulario(props) {
   useEffect(() => {
     console.log('*** useEffect() - FrmFecha')
   }, [])
@@ -87,5 +87,3 @@ function Formulario(props) {
     </div >
   )
 }
-
-export default Formulario

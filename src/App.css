@@ -516,3 +516,175 @@ input[type=submit]:hover {
     height: 560px;
   }
 }
+
+
+.about-page {
+  padding: 2rem;
+  font-family: Arial, sans-serif;
+  /* color: #222; */
+  max-width: 900px;
+  margin: auto;
+}
+
+.container-article {
+  background-color: #282c34;
+  padding: 1.5rem;
+  border-radius: 10px;
+  margin-bottom: 2rem;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+}
+
+.profile-card {
+  display: flex;
+  align-items: center;
+  margin-top: 1rem;
+  background: #282c34;
+  padding: 1rem;
+  border-radius: 8px;
+  box-shadow: 0 1px 5px rgba(0, 0, 0, 0.1);
+}
+
+/* .profile-info {
+  margin-left: 1.5rem;
+} */
+
+.profile-info h3 {
+  margin-bottom: 0.5rem;
+}
+
+.avatar {
+  border-radius: 50%;
+  border: 2px solid #000000;
+}
+
+.social-links {
+  list-style: none;
+  display: flex;
+  gap: 10px;
+  padding: 0;
+  margin: 0.5rem 0 0;
+}
+
+.social-links img {
+  width: 32px;
+  height: 32px;
+  transition: transform 0.2s ease;
+}
+
+.social-links img:hover {
+  transform: scale(1.1);
+}
+
+.img48x48 {
+  width: 48px !important;
+  height: 48px !important;
+}
+
+.cards-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 2rem;
+  justify-content: center;
+  margin-top: 2rem;
+}
+
+.profile-card {
+  flex: 1 1 350px;
+  max-width: 400px;
+  background-color: #2d2f38;
+  padding: 1.5rem;
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  color: white;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+.linktree-link {
+  display: inline-block;
+  margin-top: 0.5rem;
+  font-weight: bold;
+  color: #fff;
+  text-decoration: none;
+  background-color: #1db954;
+  /* Verde tipo Spotify */
+  padding: 0.4rem 1rem;
+  border-radius: 20px;
+  transition: background-color 0.3s ease;
+}
+
+.linktree-link:hover {
+  background-color: #1aa34a;
+  text-decoration: none;
+}
+
+.profile-card.vertical {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  padding: 1.5rem;
+  border-radius: 12px;
+  background-color: #2d2f38;
+  color: white;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  max-width: 450px;
+  margin: auto;
+}
+
+.profile-info h3 {
+  margin-bottom: 0.3rem;
+}
+
+.profile-info p {
+  margin-top: 0;
+  font-size: 0.95rem;
+  color: #d1d1d1;
+}
+
+.avatar.bottom-img {
+  margin: 1rem 0;
+  border-radius: 50%;
+  border: 2px solid #ccc;
+}
+
+.linktree-link.centered {
+  margin-top: 0.5rem;
+  font-weight: bold;
+  color: #fff;
+  text-decoration: none;
+  background-color: #1e6b39;
+  padding: 0.5rem 1.2rem;
+  border-radius: 20px;
+  transition: background-color 0.3s ease;
+}
+
+.linktree-link.centered:hover {
+  background-color: #1aa34a;
+}
+
+.profile-info h3,
+.profile-info p {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.section-divider {
+  border: none;
+  border-top: 2px solid #444;
+  margin: 3rem auto;
+  width: 80%;
+  opacity: 0.5;
+}
+
+.section-title {
+  text-align: center;
+  font-size: 1.8rem;
+  color: #fff;
+  margin-bottom: 2rem;
+}
+
+.colaboradores-section {
+  padding: 2rem 1rem;
+}

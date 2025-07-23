@@ -1,9 +1,8 @@
 import '../App.css'
-const Page = ({ children }) => {
+export default function Page({ children }) {
   return (
     <div className="App">
       {children}
     </div >
   )
 }
-export default Page

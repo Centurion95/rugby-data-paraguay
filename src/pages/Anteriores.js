@@ -6,8 +6,7 @@ import { links } from '../utils/links'
 import Spinner from '../components/Spinner'
 
 const { insertWebVisit } = require('../utils/utils')
-
-function Page() {
+export default function Page() {
   const [year, setYear] = useState(new Date().getFullYear() - 1)
 
   const this_url = process.env.REACT_APP_SERVER + links.TORNEOS_BY_YEAR + year
@@ -145,5 +144,3 @@ function Page() {
     </div >
   )
 }
-
-export default Page

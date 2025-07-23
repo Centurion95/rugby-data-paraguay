@@ -2,7 +2,7 @@ import React from 'react'
 import { Helmet } from 'react-helmet'
 import img_instagram from '../img/logos/instagram.png'
 
-const Page = () => {
+export default function Page() {
   // Datos de los metadatos dinámicos
   const title = 'Primera publicación en Instagram: Rugby Data Paraguay'
   const description = '¡Únete a nuestra nueva aventura en Instagram! Rugby Data Paraguay te trae momentos destacados, perfiles de jugadores y noticias emocionantes.'
@@ -42,5 +42,3 @@ const Page = () => {
     </div>
   )
 }
-
-export default Page

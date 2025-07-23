@@ -54,6 +54,13 @@ npm start
 
 ## Versiones (desc)
 
+#### rc95 22/07/2025 22:18
+- Pequeños ajustes en las declaraciones de componentes .js (para declrar y exportar en una sola línea)
+- La pagina `Acerca de` ahora se llama `Nosotros`
+- Se refactoriza el archivo `Versiones.js` y las redes sociales se separan y se muestran solo en la `Nosotros`
+- En el footer agregamos el enlace al LinkTree
+- Se agregan los colaboradores en la pagina `Nosotros` y se retoca la estética, se resumen las reds sociales en Linktree
+
 #### rc95 01/10/2024 22:36
 - En la pantalla ABM de torneo_detalle se agregan las reglas css
 

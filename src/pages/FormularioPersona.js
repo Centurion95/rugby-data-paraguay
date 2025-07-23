@@ -28,7 +28,7 @@ const {
   mostrarConfirmarCancelar,
   getDecodedToken, } = require('../utils/utils')
 
-function Page(props) {
+export default function Page(props) {
   const this_url = process.env.REACT_APP_SERVER + props.link
   const identifier_type_url = process.env.REACT_APP_SERVER + links.TIPO_IDENTIFICADOR
   const country_url = process.env.REACT_APP_SERVER + links.PAISES
@@ -353,5 +353,3 @@ function Page(props) {
     </div>
   )
 }
-
-export default Page

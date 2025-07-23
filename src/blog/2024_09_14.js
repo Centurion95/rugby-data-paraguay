@@ -1,7 +1,7 @@
 import React from 'react'
 import { Helmet } from 'react-helmet'
 
-const Page = () => {
+export default function Page() {
   // Datos de los metadatos dinámicos
   const title = 'La inteligencia articifial y el rugby, ¿¿que tienen que ver??'
   const description = 'En el último año, la inteligencia artificial (IA) se ha convertido en un término omnipresente en nuestras vidas. Desde aplicaciones que predicen el clima hasta asistentes virtuales que responden nuestras preguntas, la IA está en todas partes, incluso en áreas que nunca hubiéramos imaginado, como el rugby.'
@@ -256,5 +256,3 @@ const Page = () => {
     </div >
   )
 }
-
-export default Page
