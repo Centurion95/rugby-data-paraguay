@@ -17,6 +17,12 @@ export default function Page() {
       link: "https://linktr.ee/123456"
     },
     {
+      nombre: "Adriana Robertti",
+      rol: "Creadora de contenido - Entrevistas",
+      foto: "https://drive.google.com/uc?id=1-vUEsX2fJ7xehbZMH_lZC7npvDNTekPQ", // transformado de link de Forms a imagen visible
+      link: "https://linktr.ee/123456"
+    },
+    {
       nombre: "Lidia Canatta",
       rol: "Fotógrafa",
       foto: "https://drive.google.com/uc?id=1-pEtlKndEYr-YDNGtBoUKVRCFLN9aZUJ",
@@ -26,12 +32,6 @@ export default function Page() {
       nombre: "Daniel Lopez",
       rol: "Colaborador",
       foto: "https://drive.google.com/uc?id=1-daniELopez123456", // modificá este ID según corresponda
-      link: "https://linktr.ee/123456"
-    },
-    {
-      nombre: "Adriana Robertti",
-      rol: "Creadora de contenido - Entrevistas",
-      foto: "https://drive.google.com/uc?id=1-vUEsX2fJ7xehbZMH_lZC7npvDNTekPQ", // transformado de link de Forms a imagen visible
       link: "https://linktr.ee/123456"
     },
   ]

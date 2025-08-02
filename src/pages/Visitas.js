@@ -1,10 +1,9 @@
-import Axios from 'axios'
 import React, { useEffect, useState } from 'react'
 
 import Spinner from '../components/Spinner'
 import { links } from '../utils/links'
-
 import LineChart from '../components/LineChart'
+
 export default function Page() {
   const this_url = process.env.REACT_APP_SERVER + links.VISITAS
   const [isLoading, setIsLoading] = useState(true)
@@ -26,28 +25,31 @@ export default function Page() {
   }, [selectedYear])
 
   async function fetchData() {
-    setIsLoading(true)
+    try {
+      setIsLoading(true)
+      const response = await fetch(this_url)
+      const allData = await response.json()
+      setElements(allData)
 
-    await Axios.get(this_url)
-      .then((response) => {
-        setElements(response.data)
-
-        const filteredData = response.data.filter(row => {
-          const year = new Date(row.fecha).getFullYear()
-          return year === selectedYear
-        })
-
-        const myArray = []
-        myArray.push({
-          label: `Visitas ${selectedYear}`,
-          data: filteredData.map((subrow) => subrow.cantidad)
-        })
-        setData({
-          labels: filteredData.map((row) => row.fecha),
-          datasets: myArray
-        })
+      const filteredData = allData.filter(row => {
+        const year = new Date(row.fecha).getFullYear()
+        return year === selectedYear
       })
-    setIsLoading(false)
+
+      const chartData = {
+        labels: filteredData.map((row) => row.fecha),
+        datasets: [{
+          label: `Visitas ${selectedYear}`,
+          data: filteredData.map((row) => row.cantidad)
+        }]
+      }
+
+      setData(chartData)
+    } catch (error) {
+      console.error('Error al obtener visitas:', error)
+    } finally {
+      setIsLoading(false)
+    }
   }
 
   const handleYearChange = (event) => {
@@ -62,17 +64,14 @@ export default function Page() {
       <div className="container-c">
         <label htmlFor="year-select">Seleccione el año: </label>
         <select id="year-select" value={selectedYear} onChange={handleYearChange}>
-          {/* Genera una lista de años dinámicamente */}
-          {[...new Array(5)].map((_, i) => {
+          {[...Array(5)].map((_, i) => {
             const year = new Date().getFullYear() - i
             return <option key={year} value={year}>{year}</option>
           })}
         </select>
 
         <p><u>Reporte</u></p>
-        {elements.length > 0 &&
-          <LineChart chartData={data} />
-        }
+        {elements.length > 0 && <LineChart chartData={data} />}
       </div>
       <br />
     </div>

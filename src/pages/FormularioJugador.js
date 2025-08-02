@@ -1,4 +1,3 @@
-import Axios from 'axios'
 import React, { useEffect, useState, useRef } from 'react'
 
 import imgEdit from '../img/edit.png'
@@ -10,7 +9,7 @@ import Spinner from '../components/Spinner'
 import * as XLSX from 'xlsx'
 import { links } from '../utils/links'
 import { useNavigate } from 'react-router-dom'
-const { getFormatedDateTime, getFormatedDate_to_ISO_8601, getFormatedDate_from_ISO_8601, mostrarError, mostrarConfirmarCancelar, getDecodedToken } = require('../utils/utils')
+const { getFormatedDateTime, mostrarError, mostrarConfirmarCancelar, getDecodedToken } = require('../utils/utils')
 
 export default function Page(props) {
   const this_url = process.env.REACT_APP_SERVER + props.link
@@ -21,7 +20,6 @@ export default function Page(props) {
 
   const [titulo, setTitulo] = useState('Insertar nuevo registro')
   const [elements, setElements] = useState([])
-  const [person_elements, setPerson_elements] = useState([])
   const [club_elements, setClub_elements] = useState([])
 
   const [editID, setEditID] = useState(0)
@@ -29,16 +27,14 @@ export default function Page(props) {
   const [id_person, setId_person] = useState('')
   const [id_club, setId_club] = useState('')
 
-  const id_personRef = useRef(null)
   const id_clubRef = useRef(null)
+  const identifier_numberRef = useRef(null)
 
   const [identifier_number, setIdentifier_number] = useState('')
-  const identifier_numberRef = useRef(null)
   const [person_name, setPerson_name] = useState('')
 
   const navigate = useNavigate()
   useEffect(() => {
-    //si no es admin, redirigimos al LOGIN
     const es_admin = getDecodedToken()?.es_admin
     if (!es_admin) {
       navigate('/login')
@@ -51,43 +47,35 @@ export default function Page(props) {
   }, [])
 
   async function fetchData() {
-    await Axios.get(this_url, {
-      headers: { Authorization: localStorage.getItem('token') }
-    })
-      .then((response) => {
-        // console.table(response.data)
-        setElements(response.data)
+    try {
+      const res1 = await fetch(this_url, {
+        headers: { Authorization: localStorage.getItem('token') }
       })
-      .catch((error) => mostrarError(error))
+      const data1 = await res1.json()
+      setElements(data1)
+    } catch (error) {
+      mostrarError(error)
+    }
 
-    // await Axios.get(person_url)
-    //   .then((response) => {
-    //     // console.table(response.data)
-    //     setPerson_elements(response.data)
-    //   })
-    //   .catch((error) => mostrarError(error))
-
-    await Axios.get(club_url, {
-      headers: { Authorization: localStorage.getItem('token') }
-    })
-      .then((response) => {
-        // console.table(response.data)
-        setClub_elements(response.data)
+    try {
+      const res2 = await fetch(club_url, {
+        headers: { Authorization: localStorage.getItem('token') }
       })
-      .catch((error) => mostrarError(error))
+      const data2 = await res2.json()
+      setClub_elements(data2)
+    } catch (error) {
+      mostrarError(error)
+    }
 
     setIsLoading(false)
   }
 
   function editElement(element) {
     setTitulo('Editar un registro')
-
     setEditID(element._id)
-
     setYear(element.year)
     setId_person(element.id_person._id)
     setId_club(element.id_club._id)
-
     setIdentifier_number(element.id_person.identifier_number)
     identifier_numberRef.current.focus()
   }
@@ -108,29 +96,27 @@ export default function Page(props) {
       return mostrarError(`Debe seleccionar el club!`)
     }
 
-    if (editID === 0) { //insert
-      const newDocument = {
-        year,
-        id_person,
-        id_club,
-      }
-      await Axios.post(this_url, newDocument,
-        { headers: { Authorization: localStorage.getItem('token') } }
-      )
-        .then(() => window.location.reload())
-        .catch((error) => mostrarError(error))
-
-    } else { //update
-      await Axios.patch(this_url + editID, {
-        year,
-        id_person,
-        id_club,
-      },
-        { headers: { Authorization: localStorage.getItem('token') } })
-        .then(() => window.location.reload())
-        .catch((error) => mostrarError(error))
+    const newDocument = {
+      year,
+      id_person,
+      id_club,
     }
-    // window.location.reload()
+
+    try {
+      const response = await fetch(this_url + (editID === 0 ? '' : editID), {
+        method: editID === 0 ? 'POST' : 'PATCH',
+        headers: {
+          'Content-Type': 'application/json',
+          Authorization: localStorage.getItem('token')
+        },
+        body: JSON.stringify(newDocument)
+      })
+
+      if (!response.ok) throw new Error('Error en la operación')
+      window.location.reload()
+    } catch (error) {
+      mostrarError(error)
+    }
   }
 
   const cancelFunction = async () => {
@@ -144,11 +130,21 @@ export default function Page(props) {
   const deleteFunction = (_id) => {
     mostrarConfirmarCancelar().then(async (result) => {
       if (result.isConfirmed) {
-        await Axios.patch(this_url + _id, { archived: true },
-          { headers: { Authorization: localStorage.getItem('token') } }
-        )
-          .then(() => window.location.reload())
-          .catch((error) => mostrarError(error))
+        try {
+          const response = await fetch(this_url + _id, {
+            method: 'PATCH',
+            headers: {
+              'Content-Type': 'application/json',
+              Authorization: localStorage.getItem('token')
+            },
+            body: JSON.stringify({ archived: true })
+          })
+
+          if (!response.ok) throw new Error('Error al eliminar')
+          window.location.reload()
+        } catch (error) {
+          mostrarError(error)
+        }
       }
     })
   }
@@ -158,22 +154,22 @@ export default function Page(props) {
     setPerson_name('')
     if (identifier_number.trim() === '') return
 
-    await Axios.get(person_url + 'get_one_by_identifier_number', {
-      params: { identifier_number },
-      headers: { Authorization: localStorage.getItem('token') }
-    })
-      .then((response) => {
-        if (response.data.encontrado === false) {
-          setPerson_name('No existe el registro')
-          return
-        }
+    try {
+      const res = await fetch(person_url + 'get_one_by_identifier_number?' + new URLSearchParams({ identifier_number }), {
+        headers: { Authorization: localStorage.getItem('token') }
+      })
+      const data = await res.json()
 
-        setId_person(response.data._id)
-        setPerson_name(response.data.name)
-      })
-      .catch((error) => {
-        mostrarError(error)
-      })
+      if (data.encontrado === false) {
+        setPerson_name('No existe el registro')
+        return
+      }
+
+      setId_person(data._id)
+      setPerson_name(data.name)
+    } catch (error) {
+      mostrarError(error)
+    }
   }
 
   const exportToXLSX = () => {
@@ -257,8 +253,8 @@ export default function Page(props) {
             <th>Club</th>
             <th>Fecha creación</th>
             <th colSpan={2}>
-              {elements.length !== 0
-                && <button className="btn-green" onClick={exportToXLSX}>Exportar XLSX</button>
+              {elements.length !== 0 &&
+                <button className="btn-green" onClick={exportToXLSX}>Exportar XLSX</button>
               }
             </th>
           </tr>

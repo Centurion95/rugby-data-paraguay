@@ -1,4 +1,3 @@
-import Axios from 'axios'
 import React, { useEffect, useState } from 'react'
 
 import FrmFecha from '../components/FrmFecha'
@@ -11,6 +10,10 @@ export default function Page() {
   const [isLoading, setIsLoading] = useState(true)
   const [elements, setElements] = useState([])
 
+  const [torneo_id, setTorneo_id] = useState('')
+  const [torneo_nombre, setTorneo_nombre] = useState('')
+  const [arrayFechas, setArrayFechas] = useState([])
+
   useEffect(() => {
     console.log('*** useEffect() - HOME')
     insertWebVisit(1)
@@ -18,21 +21,24 @@ export default function Page() {
   }, [])
 
   async function fetchData() {
-    setIsLoading(true)
+    try {
+      setIsLoading(true)
+      const response = await fetch(this_url)
+      const data = await response.json()
 
-    await Axios.get(this_url)
-      .then((response) => {
-        setElements(response.data)
+      setElements(data)
 
-        //seleccionamos el 1er torneo..
-        setTorneo_id(response.data[0]._id)
-        setTorneo_nombre(response.data[0].name)
-      })
-    setIsLoading(false)
+      if (data.length > 0) {
+        setTorneo_id(data[0]._id)
+        setTorneo_nombre(data[0].name)
+      }
+    } catch (error) {
+      console.error('Error al obtener los torneos:', error)
+    } finally {
+      setIsLoading(false)
+    }
   }
 
-  const [torneo_id, setTorneo_id] = useState('')
-  const [torneo_nombre, setTorneo_nombre] = useState('')
   useEffect(() => {
     if (torneo_id) {
       console.log('*** useEffect() - torneo_id', torneo_id)
@@ -40,35 +46,35 @@ export default function Page() {
     }
   }, [torneo_id])
 
-  const [arrayFechas, setArrayFechas] = useState([])
-
   async function fetchData_matches() {
-    const this_url = process.env.REACT_APP_SERVER + links.TORNEO_DETALLES
-    setIsLoading(true)
+    try {
+      setIsLoading(true)
 
-    await Axios.get(this_url, {
-      params: { id_tournament: torneo_id }
-    })
-      .then((response) => {
-        const matches = response.data
-        const fechas = {}
+      const this_url = process.env.REACT_APP_SERVER + links.TORNEO_DETALLES
+      const urlWithParams = `${this_url}?id_tournament=${encodeURIComponent(torneo_id)}`
+      const response = await fetch(urlWithParams)
+      const matches = await response.json()
 
-        matches.forEach(obj => {
-          if (!fechas[obj.round]) {
-            fechas[obj.round] = []
-          }
-          fechas[obj.round].push(obj)
-        })
-
-        setArrayFechas(Object.values(fechas))
+      const fechas = {}
+      matches.forEach(obj => {
+        if (!fechas[obj.round]) {
+          fechas[obj.round] = []
+        }
+        fechas[obj.round].push(obj)
       })
 
-    setIsLoading(false)
+      setArrayFechas(Object.values(fechas))
+    } catch (error) {
+      console.error('Error al obtener los detalles del torneo:', error)
+    } finally {
+      setIsLoading(false)
+    }
   }
 
   const handleInputChange = (event) => {
-    setTorneo_id(event.target.value)
-    const selectedItem = elements.find(item => item._id === event.target.value)
+    const selectedId = event.target.value
+    setTorneo_id(selectedId)
+    const selectedItem = elements.find(item => item._id === selectedId)
     setTorneo_nombre(selectedItem?.name)
   }
 
@@ -84,36 +90,26 @@ export default function Page() {
         </div>
         <div className="col-75">
           <select value={torneo_id} onChange={handleInputChange}>
-            {elements.length > 0 &&
-              <>
-                {elements.map((element) => {
-                  return (
-                    <option key={element._id} value={element._id}>
-                      {element.name}
-                    </option>
-                  )
-                })}
-              </>
-            }
+            {elements.map((element) => (
+              <option key={element._id} value={element._id}>
+                {element.name}
+              </option>
+            ))}
           </select>
         </div>
       </div>
 
       <div className="container-c">
         <p><u>Fechas del torneo</u></p>
-        {arrayFechas.length > 0 ?
-          <>
-            {arrayFechas.map((fecha, index) => {
-              return (
-                <FrmFecha key={index} division={torneo_nombre} fecha={"Fecha " + fecha[0].round} matches={fecha} />
-              )
-            })}
-          </>
-          : <label>No se encontraron resultados..</label>
-        }
+        {arrayFechas.length > 0 ? (
+          arrayFechas.map((fecha, index) => (
+            <FrmFecha key={index} division={torneo_nombre} fecha={"Fecha " + fecha[0].round} matches={fecha} />
+          ))
+        ) : (
+          <label>No se encontraron resultados..</label>
+        )}
       </div>
       <br />
-
     </div>
   )
 }

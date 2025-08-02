@@ -1,6 +1,5 @@
-import { useNavigate, useParams, useLocation } from 'react-router-dom'
-import Axios from 'axios'
 import React, { useEffect, useState, useRef } from 'react'
+import { useNavigate, useParams, useLocation } from 'react-router-dom'
 
 import imgEdit from '../img/edit.png'
 import imgDelete from '../img/delete.png'
@@ -74,26 +73,30 @@ export default function Page() {
   }, [])
 
   async function fetchData() {
-    await Axios.get(this_url, {
-      params: { id_tournament }
-    }).then((response) => {
-      setElements(response.data)
-    }).catch((error) => mostrarError(error))
+    try {
+      const resPartidos = await fetch(`${this_url}?id_tournament=${encodeURIComponent(id_tournament)}`)
+      const partidos = await resPartidos.json()
+      setElements(partidos)
 
-    await Axios.get(estadio_url, {
-      headers: { Authorization: localStorage.getItem('token') }
-    }).then((response) => {
-      setEstadio_elements(response.data)
-    }).catch((error) => mostrarError(error))
+      const resEstadios = await fetch(estadio_url, {
+        headers: { Authorization: localStorage.getItem('token') }
+      })
+      const estadios = await resEstadios.json()
+      setEstadio_elements(estadios)
 
-    await Axios.get(club_url, {
-      headers: { Authorization: localStorage.getItem('token') }
-    }).then((response) => {
-      setClub_elements(response.data)
-    }).catch((error) => mostrarError(error))
+      const resClubes = await fetch(club_url, {
+        headers: { Authorization: localStorage.getItem('token') }
+      })
+      const clubes = await resClubes.json()
+      setClub_elements(clubes)
 
-    setIsLoading(false)
+    } catch (error) {
+      mostrarError(error)
+    } finally {
+      setIsLoading(false)
+    }
   }
+
 
   function editElement(element) {
     setTitulo('Editar un registro')
@@ -112,58 +115,43 @@ export default function Page() {
   }
 
   const insertFunction = async () => {
-    if (Number(round) < 1) {
-      roundRef.current.focus()
-      return mostrarError(`Debe ingresar la fecha!`)
+    if (Number(round) < 1) return mostrarError(`Debe ingresar la fecha!`)
+    if (Number(order_number) < 1) return mostrarError(`Debe ingresar el numero de partido!`)
+    if (id_local_team.trim() === '') return mostrarError(`Debe seleccionar el equipo local!`)
+    if (id_visiting_team.trim() === '') return mostrarError(`Debe seleccionar el equipo visitante!`)
+
+    const payload = {
+      id_tournament,
+      round,
+      order_number,
+      id_stadium,
+      id_local_team,
+      id_visiting_team,
+      date,
+      local_team_final_score,
+      visiting_team_final_score,
     }
 
-    if (Number(order_number) < 1) {
-      order_numberRef.current.focus()
-      return mostrarError(`Debe ingresar el numero de partido!`)
-    }
-
-    if (id_local_team.trim() === '') {
-      id_local_teamRef.current.focus()
-      return mostrarError(`Debe seleccionar el equipo local!`)
-    }
-
-    if (id_visiting_team.trim() === '') {
-      id_visiting_teamRef.current.focus()
-      return mostrarError(`Debe seleccionar el equipo visitante!`)
-    }
-
-    if (editID === 0) { //insert
-      const newDocument = {
-        id_tournament,
-        round,
-        order_number,
-        id_stadium,
-        id_local_team,
-        id_visiting_team,
-        date,
-        local_team_final_score,
-        visiting_team_final_score,
+    try {
+      if (editID === 0) {
+        await fetch(this_url, {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify(payload)
+        })
+      } else {
+        await fetch(`${this_url}${editID}`, {
+          method: 'PATCH',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify(payload)
+        })
       }
-      await Axios.post(this_url, newDocument)
-        .then(() => window.location.reload())
-        .catch((error) => mostrarError(error))
-
-    } else { //update
-      await Axios.patch(this_url + editID, {
-        id_tournament,
-        round,
-        order_number,
-        id_stadium,
-        id_local_team,
-        id_visiting_team,
-        date,
-        local_team_final_score,
-        visiting_team_final_score,
-      })
-        .then(() => window.location.reload())
-        .catch((error) => mostrarError(error))
+      window.location.reload()
+    } catch (error) {
+      mostrarError(error)
     }
   }
+
 
   const cancelFunction = async () => {
     setTitulo('Insertar nuevo registro')
@@ -181,12 +169,20 @@ export default function Page() {
   const deleteFunction = (_id) => {
     mostrarConfirmarCancelar().then(async (result) => {
       if (result.isConfirmed) {
-        await Axios.patch(this_url + _id, { archived: true })
-          .then(() => window.location.reload())
-          .catch((error) => mostrarError(error))
+        try {
+          await fetch(`${this_url}${_id}`, {
+            method: 'PATCH',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({ archived: true })
+          })
+          window.location.reload()
+        } catch (error) {
+          mostrarError(error)
+        }
       }
     })
   }
+
 
   const exportToXLSX = () => {
     const wb = XLSX.utils.book_new()

@@ -2,6 +2,10 @@ import React from 'react'
 
 const versiones = [
   {
+    fecha: '01/08/2025 23:21',
+    cambios: ['Se desinstala la dependencia `Axios` y se reemplaza por la función nativa `fetch` en todo el proyecto']
+  },
+  {
     fecha: '22/07/2025 22:18',
     cambios: [
       'Pequeños ajustes en las declaraciones de componentes .js (para declarar y exportar en una sola línea)',

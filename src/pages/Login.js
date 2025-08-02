@@ -1,9 +1,9 @@
-import Axios from 'axios'
 import React, { useEffect, useState, useRef } from 'react'
 import CryptoJS from 'crypto-js'
 import { links } from '../utils/links'
 import { mostrarError } from '../utils/utils'
 import { useNavigate } from 'react-router-dom'
+
 export default function Page() {
   const navigate = useNavigate()
   const this_url = process.env.REACT_APP_SERVER + links.LOGIN
@@ -19,19 +19,30 @@ export default function Page() {
   const passwordRef = useRef(null)
 
   const handleLogin = async () => {
-    const hashedPassword = CryptoJS.SHA256(password).toString(CryptoJS.enc.Hex)
-    await Axios.post(this_url, {
-      username,
-      password: hashedPassword
-    }).then((response) => {
-      localStorage.setItem('token', response.data.token)
+    try {
+      const hashedPassword = CryptoJS.SHA256(password).toString(CryptoJS.enc.Hex)
+
+      const response = await fetch(this_url, {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({
+          username,
+          password: hashedPassword
+        })
+      })
+
+      if (!response.ok) throw new Error('Login fallido')
+
+      const data = await response.json()
+      localStorage.setItem('token', data.token)
 
       navigate('/')
       window.location.reload()
-    }).then(() => {
-    }).catch((error) => {
-      return mostrarError(`Error de LOGIN!`)
-    })
+    } catch (error) {
+      mostrarError('Error de LOGIN!')
+    }
   }
 
   function handleKeyDown(event) {
@@ -40,6 +51,7 @@ export default function Page() {
       event.preventDefault()
     }
   }
+
   return (
     <div>
       <div className="container-c">

@@ -1,4 +1,3 @@
-import Axios from 'axios'
 import React, { useEffect, useState, useRef } from 'react'
 
 import imgNew from '../img/new.png'
@@ -70,35 +69,34 @@ export default function Page(props) {
   }, [])
 
   async function fetchData() {
-    await Axios.get(this_url, {
-      headers: { Authorization: localStorage.getItem('token') }
-    })
-      .then((response) => {
-        // console.table(response.data)
-        setElements(response.data)
-      })
-      .catch((error) => mostrarError(error))
+    try {
+      const token = localStorage.getItem('token')
 
-    await Axios.get(identifier_type_url, {
-      headers: { Authorization: localStorage.getItem('token') }
-    })
-      .then((response) => {
-        // console.table(response.data)
-        setIdentifier_type_elements(response.data)
+      const res1 = await fetch(this_url, {
+        headers: { Authorization: token }
       })
-      .catch((error) => mostrarError(error))
+      const personas = await res1.json()
+      setElements(personas)
 
-    await Axios.get(country_url, {
-      headers: { Authorization: localStorage.getItem('token') }
-    })
-      .then((response) => {
-        // console.table(response.data)
-        setCountry_elements(response.data)
+      const res2 = await fetch(identifier_type_url, {
+        headers: { Authorization: token }
       })
-      .catch((error) => mostrarError(error))
+      const identificadores = await res2.json()
+      setIdentifier_type_elements(identificadores)
 
-    setIsLoading(false)
+      const res3 = await fetch(country_url, {
+        headers: { Authorization: token }
+      })
+      const paises = await res3.json()
+      setCountry_elements(paises)
+
+    } catch (error) {
+      mostrarError(error)
+    } finally {
+      setIsLoading(false)
+    }
   }
+
 
   function editElement(element) {
     setTitulo('Editar un registro')
@@ -115,66 +113,48 @@ export default function Page(props) {
   }
 
   const insertFunction = async () => {
-    if (name.trim() === '') {
-      nameRef.current.focus()
-      return mostrarError(`Debe ingresar el nombre!`)
+    if (name.trim() === '') return mostrarError(`Debe ingresar el nombre!`)
+    if (birthDate === '') return mostrarError(`Debe ingresar la fecha de nacimiento!`)
+    if (gender.trim() === '') return mostrarError(`Debe ingresar el género!`)
+    if (id_identifier_type.trim() === '') return mostrarError(`Debe ingresar el tipo de identificador!`)
+    if (identifier_number.trim() === '') return mostrarError(`Debe ingresar el numero de identificador!`)
+    if (id_country.trim() === '') return mostrarError(`Debe seleccionar el país!`)
+
+    const payload = {
+      name,
+      birthDate,
+      gender,
+      id_identifier_type,
+      identifier_number,
+      id_country,
     }
 
-    if (birthDate === '') {
-      // birthDateRef.current.focus()
-      return mostrarError(`Debe ingresar la fecha de nacimiento!`)
+    const token = localStorage.getItem('token')
+    const headers = {
+      'Content-Type': 'application/json',
+      Authorization: token
     }
 
-    if (gender.trim() === '') {
-      genderRef.current.focus()
-      return mostrarError(`Debe ingresar el género!`)
-    }
-
-    if (id_identifier_type.trim() === '') {
-      id_identifier_typeRef.current.focus()
-      return mostrarError(`Debe ingresar el tipo de identificador!`)
-    }
-
-    if (identifier_number.trim() === '') {
-      identifier_numberRef.current.focus()
-      return mostrarError(`Debe ingresar el numero de identificador!`)
-    }
-
-    if (id_country.trim() === '') {
-      countryRef.current.focus()
-      return mostrarError(`Debe seleccionar el país!`)
-    }
-
-    if (editID === 0) { //insert
-      const newDocument = {
-        name,
-        birthDate,
-        gender,
-        id_identifier_type,
-        identifier_number,
-        id_country,
+    try {
+      if (editID === 0) {
+        await fetch(this_url, {
+          method: 'POST',
+          headers,
+          body: JSON.stringify(payload)
+        })
+      } else {
+        await fetch(`${this_url}${editID}`, {
+          method: 'PATCH',
+          headers,
+          body: JSON.stringify(payload)
+        })
       }
-      await Axios.post(this_url, newDocument,
-        { headers: { Authorization: localStorage.getItem('token') } }
-      )
-        .then(() => window.location.reload())
-        .catch((error) => mostrarError(error))
-
-    } else { //update
-      await Axios.patch(this_url + editID, {
-        name,
-        birthDate,
-        gender,
-        id_identifier_type,
-        identifier_number,
-        id_country,
-      },
-        { headers: { Authorization: localStorage.getItem('token') } })
-        .then(() => window.location.reload())
-        .catch((error) => mostrarError(error))
+      window.location.reload()
+    } catch (error) {
+      mostrarError(error)
     }
-    // window.location.reload()
   }
+
 
   const cancelFunction = async () => {
     setTitulo('Insertar nuevo registro')
@@ -190,14 +170,23 @@ export default function Page(props) {
   const deleteFunction = (_id) => {
     mostrarConfirmarCancelar().then(async (result) => {
       if (result.isConfirmed) {
-        await Axios.patch(this_url + _id, { archived: true },
-          { headers: { Authorization: localStorage.getItem('token') } }
-        )
-          .then(() => window.location.reload())
-          .catch((error) => mostrarError(error))
+        try {
+          await fetch(`${this_url}${_id}`, {
+            method: 'PATCH',
+            headers: {
+              'Content-Type': 'application/json',
+              Authorization: localStorage.getItem('token')
+            },
+            body: JSON.stringify({ archived: true })
+          })
+          window.location.reload()
+        } catch (error) {
+          mostrarError(error)
+        }
       }
     })
   }
+
 
   const exportToXLSX = () => {
     const wb = XLSX.utils.book_new()

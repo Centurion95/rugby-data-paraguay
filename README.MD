@@ -54,6 +54,9 @@ npm start
 
 ## Versiones (desc)
 
+#### rc95 01/08/2025 23:21
+- Se desinstala la dependencia `Axios` y se reemplaza por la función nativa `fetch` en todo el proyecto
+
 #### rc95 22/07/2025 22:18
 - Pequeños ajustes en las declaraciones de componentes .js (para declrar y exportar en una sola línea)
 - La pagina `Acerca de` ahora se llama `Nosotros`
