@@ -7,6 +7,7 @@ export default function Page({ children }) {
   const [username, setUsername] = useState('')
   const [name, setName] = useState('')
   const [es_admin, setEs_admin] = useState('')
+  const [ID, setID] = useState('')
 
   useEffect(() => {
     console.log('📌 useEffect() - LAYOUT')
@@ -15,6 +16,7 @@ export default function Page({ children }) {
       setUsername(decoded.username || '')
       setName(decoded.name || '')
       setEs_admin(decoded.es_admin || false)
+      setID(decoded._id || null)
     }
   }, [])
 

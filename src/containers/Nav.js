@@ -57,6 +57,7 @@ export default function Page({ name, es_admin }) {
                 <NavDropdown.Item href="/versiones">Versiones</NavDropdown.Item>
                 <NavDropdown.Item href="/visitas">Visitas</NavDropdown.Item>
                 <NavDropdown.Divider />
+                <NavDropdown.Item href="/cambiarPassword">Cambiar contraseña</NavDropdown.Item>
                 <NavDropdown.Item onClick={cerrarSesion}>Cerrar sesión</NavDropdown.Item>
               </NavDropdown>
               :

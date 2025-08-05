@@ -22,6 +22,8 @@ import Versiones from './pages/Versiones'
 
 import Visitas from './pages/Visitas'
 
+import CambiarPassword from './pages/CambiarPassword'
+
 import B_2022_09_15 from './blog/2022_09_15'
 import B_2022_09_30 from './blog/2022_09_30'
 import B_2022_11_11 from './blog/2022_11_11'
@@ -69,6 +71,7 @@ function App() {
           <Route exact path="/about" element={<About />} />
 
           <Route exact path="/login" element={<Login />} />
+          <Route exact path="/cambiarPassword" element={<CambiarPassword />} />
           <Route exact path="/anteriores" element={<Anteriores />} />
 
           <Route exact path="/blog" element={<Blog />} />

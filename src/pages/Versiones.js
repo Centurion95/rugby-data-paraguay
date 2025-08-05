@@ -2,6 +2,10 @@ import React from 'react'
 
 const versiones = [
   {
+    fecha: '05/08/2025 03:10',
+    cambios: ['Se agrega el modulo para Cambiar Contraseña']
+  },
+  {
     fecha: '01/08/2025 23:21',
     cambios: ['Se desinstala la dependencia `Axios` y se reemplaza por la función nativa `fetch` en todo el proyecto']
   },

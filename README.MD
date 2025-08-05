@@ -54,6 +54,9 @@ npm start
 
 ## Versiones (desc)
 
+#### rc95 05/08/2025 03:10
+- Se agrega el modulo para Cambiar Contraseña
+
 #### rc95 01/08/2025 23:21
 - Se desinstala la dependencia `Axios` y se reemplaza por la función nativa `fetch` en todo el proyecto
 
