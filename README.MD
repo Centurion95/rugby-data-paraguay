@@ -54,6 +54,9 @@ npm start
 
 ## Versiones (desc)
 
+#### rc95 06/08/2025 21:18
+- Ajustes de colaboradores en "Nosotros", se agregan fotos
+
 #### rc95 05/08/2025 03:10
 - Se agrega el modulo para Cambiar Contraseña
 

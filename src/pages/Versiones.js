@@ -2,6 +2,10 @@ import React from 'react'
 
 const versiones = [
   {
+    fecha: '06/08/2025 21:18',
+    cambios: ['Ajustes de colaboradores en "Nosotros", se agregan fotos']
+  },
+  {
     fecha: '05/08/2025 03:10',
     cambios: ['Se agrega el modulo para Cambiar Contraseña']
   },

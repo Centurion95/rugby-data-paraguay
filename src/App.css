@@ -353,6 +353,9 @@ input[type=submit]:hover {
   line-height: 1;
   overflow: hidden;
   vertical-align: middle;
+
+  /* rc95 06/08/2025 21:29*/
+  object-fit: cover;
 }
 
 .avatar-user {

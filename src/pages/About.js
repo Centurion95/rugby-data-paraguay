@@ -1,6 +1,11 @@
 import React from 'react'
 import img_paraguay from '../img/paraguay.jpg'
 
+import santinoImg from '../img/colaboradores/santino_sodano.jpeg'
+import lidiaImg from '../img/colaboradores/lidia_canatta.jpeg'
+import danielImg from '../img/colaboradores/daniel_lopez.jpeg'
+import adrianaImg from '../img/colaboradores/adriana_robertti.jpeg'
+
 export default function Page() {
 
   const colaboradores = [
@@ -13,25 +18,37 @@ export default function Page() {
     {
       nombre: "Santino Sodano",
       rol: "Periodista",
-      foto: "https://drive.google.com/uc?id=1-pEtlKndEYr-YDNGtBoUKVRCFLN9aZUJ",
+      foto: santinoImg,
       link: "https://linktr.ee/123456"
     },
     {
       nombre: "Adriana Robertti",
       rol: "Creadora de contenido - Entrevistas",
-      foto: "https://drive.google.com/uc?id=1-vUEsX2fJ7xehbZMH_lZC7npvDNTekPQ", // transformado de link de Forms a imagen visible
-      link: "https://linktr.ee/123456"
-    },
-    {
-      nombre: "Lidia Canatta",
-      rol: "Fotógrafa",
-      foto: "https://drive.google.com/uc?id=1-pEtlKndEYr-YDNGtBoUKVRCFLN9aZUJ",
+      foto: adrianaImg,
       link: "https://linktr.ee/123456"
     },
     {
       nombre: "Daniel Lopez",
       rol: "Colaborador",
+      foto: danielImg,
+      link: "https://linktr.ee/123456"
+    },
+    {
+      nombre: "Ale Rodriguez",
+      rol: "Colaborador",
       foto: "https://drive.google.com/uc?id=1-daniELopez123456", // modificá este ID según corresponda
+      link: "https://linktr.ee/123456"
+    },
+    {
+      nombre: "Lidia Canatta",
+      rol: "Fotógrafa",
+      foto: lidiaImg,
+      link: "https://linktr.ee/123456"
+    },
+    {
+      nombre: "Mathias Bordón",
+      rol: "Colaborador",
+      foto: "https://drive.google.com/uc?id=1-pEtlKndEYr-YDNGtBoUKVRCFLN9aZUJ",
       link: "https://linktr.ee/123456"
     },
   ]
