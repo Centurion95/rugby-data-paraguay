@@ -141,7 +141,7 @@ export default function Page() {
         </div>
       </section>
 
-      <hr className="section-divider" />
+      {/* <hr className="section-divider" />
 
       <section className="colaboradores-section">
         <h2 className="section-title">🤝 Colaboradores</h2>
@@ -170,7 +170,7 @@ export default function Page() {
             </div>
           ))}
         </div>
-      </section>
+      </section> */}
 
 
     </main>
