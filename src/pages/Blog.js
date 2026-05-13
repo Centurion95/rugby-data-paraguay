@@ -7,6 +7,17 @@ export default function Page() {
       <h1>Blog</h1>
 
       <div className="cta-buttons">
+        <a className="cta-button" href="/blog/2026_05_13">
+          <div>
+            <p className='right i'>13/05/2026 11:09 - Rodrigo Centurión</p>
+            <h2>Gracias, Rugby Data Paraguay</h2>
+            <hr />
+            <p>Hoy quiero escribir unas palabras muy especiales para todos los que formaron parte de este proyecto durante tantos años.</p>
+          </div>
+        </a>
+      </div>
+
+      <div className="cta-buttons">
         <a className="cta-button" href="/blog/2024_09_14">
           <div>
             <p className='right i'>14/09/2024 12:27 - Horacio Ariel Garcia Cabrera</p>

@@ -251,7 +251,7 @@ export default function Page() {
       </div >
       <div className="right">
         <a className="btn-green" href="/blog/2024_09_02">Anterior</a>
-        <a className="btn-gray margin-left-10">Siguiente</a>
+        <a className="btn-green margin-left-10" href="/blog/2026_05_13">Siguiente</a>
       </div>
     </div >
   )

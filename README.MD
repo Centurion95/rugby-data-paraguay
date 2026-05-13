@@ -56,6 +56,10 @@ npm start
 
 ## Versiones (desc)
 
+#### rc95 13/05/2026 11:26
+
+- Último commit del proyecto, agrego un último artículo `2026_05_13.js` al blog como despedida, gracias a todos!!
+
 #### rc95 13/05/2026 10:30
 
 - Ajustes en la pagina "Nosotros", se omiten colaboradores
